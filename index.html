@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Denver Alumni Chapter — Site Concept</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --crimson:#8E1B3A;
+    --crimson-dark:#4E0F22;
+    --cream:#F4EEE2;
+    --cream-2:#E9DFC9;
+    --ink:#241A17;
+    --gold:#B08D4F;
+    --white:#FFFFFF;
+    color-scheme: light;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    box-sizing: border-box;
+  }
+  html{scroll-padding-top: 92px; -webkit-text-size-adjust:100%;}
+  *,*::before,*::after{box-sizing:inherit;}
+  body{
+    margin:0; background:var(--cream); color:var(--ink);
+    font-family:'Work Sans',Arial,sans-serif; line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif; margin:0; color:var(--ink); font-weight:600;}
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 28px;}
+  section{scroll-margin-top:92px;}
+
+  /* ---------- Header / Nav ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:var(--crimson); color:var(--cream);
+    padding-top: env(safe-area-inset-top, 0px);
+    border-bottom:3px solid var(--gold);
+  }
+  .navbar{display:flex; align-items:center; justify-content:space-between; height:76px; gap:24px;}
+  .brand{display:flex; align-items:center; gap:12px; flex-shrink:0;}
+  .mark{width:38px; height:38px; flex-shrink:0;}
+  .brand-text{font-family:'Fraunces',serif; font-weight:600; font-size:17px; line-height:1.15;}
+  .brand-text span{display:block; font-family:'Work Sans',sans-serif; font-weight:500; font-size:11px; letter-spacing:.04em; color:var(--cream-2); margin-top:2px;}
+
+  nav.primary{display:flex; align-items:center; gap:2px;}
+  .navitem{position:relative;}
+  .navitem>a, .navitem>button{
+    display:flex; align-items:center; gap:6px;
+    background:none; border:none; cursor:pointer;
+    color:var(--cream); font:inherit; font-family:'Work Sans',sans-serif;
+    font-weight:600; font-size:15px; padding:14px 14px; letter-spacing:.01em;
+  }
+  .navitem>button svg{width:9px; height:9px; opacity:.8; transition:transform .18s;}
+  .navitem:hover>button svg{transform:rotate(180deg);}
+  .dropdown{
+    position:absolute; top:100%; left:0; min-width:280px;
+    background:var(--white); color:var(--ink); border-radius:4px;
+    box-shadow:0 18px 40px rgba(20,10,10,.22);
+    padding:10px; opacity:0; visibility:hidden; transform:translateY(6px);
+    transition:opacity .16s ease, transform .16s ease, visibility .16s;
+    border-top:3px solid var(--gold);
+  }
+  .navitem:hover .dropdown, .navitem:focus-within .dropdown{opacity:1; visibility:visible; transform:translateY(0);}
+  .dropdown a{
+    display:flex; align-items:baseline; justify-content:space-between; gap:10px;
+    padding:10px 12px; border-radius:3px; font-size:14.5px; font-weight:500; color:var(--ink);
+  }
+  .dropdown a:hover{background:var(--cream);}
+  .dropdown a small{color:var(--crimson); font-weight:600; font-size:12px; white-space:nowrap;}
+  .navcta{
+    background:var(--gold); color:var(--crimson-dark)!important; border-radius:3px;
+    padding:10px 18px!important; font-weight:700!important;
+  }
+  .navtoggle{display:none; background:none; border:2px solid var(--cream-2); border-radius:4px; padding:8px 10px; color:var(--cream);}
+  .navtoggle svg{width:20px; height:20px; display:block;}
+
+  @media (max-width:980px){
+    nav.primary{
+      position:fixed; inset:76px 0 0 0; background:var(--crimson-dark);
+      flex-direction:column; align-items:stretch; padding:14px; overflow-y:auto;
+      transform:translateX(100%); transition:transform .22s ease; gap:0;
+    }
+    nav.primary.open{transform:translateX(0);}
+    .navitem{width:100%;}
+    .navitem>button, .navitem>a{width:100%; justify-content:space-between; padding:16px 8px; border-bottom:1px solid rgba(244,238,226,.12);}
+    .dropdown{position:static; box-shadow:none; opacity:1; visibility:visible; transform:none; display:none; background:rgba(244,238,226,.06); border-top:none;}
+    .navitem.expanded .dropdown{display:block;}
+    .dropdown a{color:var(--cream);}
+    .dropdown a:hover{background:rgba(244,238,226,.08);}
+    .navtoggle{display:block;}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{background:linear-gradient(180deg,var(--crimson) 0%, var(--crimson-dark) 100%); color:var(--cream); position:relative; overflow:hidden;}
+  .hero .wrap{padding:88px 28px 0; position:relative; z-index:2;}
+  .eyebrow-line{display:flex; align-items:center; gap:12px; margin-bottom:22px; color:var(--gold); font-weight:600; font-size:14px;}
+  .eyebrow-line::before{content:""; width:34px; height:2px; background:var(--gold);}
+  .hero h1{font-size:clamp(34px,5vw,58px); line-height:1.06; max-width:15ch; color:var(--white);}
+  .hero p.lede{max-width:52ch; font-size:18px; color:var(--cream-2); margin:22px 0 34px;}
+  .hero-actions{display:flex; gap:14px; flex-wrap:wrap; padding-bottom:56px;}
+  .btn{display:inline-flex; align-items:center; gap:8px; padding:13px 24px; border-radius:3px; font-weight:700; font-size:15px; border:2px solid transparent;}
+  .btn-gold{background:var(--gold); color:var(--crimson-dark);}
+  .btn-outline{border-color:rgba(244,238,226,.55); color:var(--cream);}
+  .skyline{display:block; width:100%; height:auto;}
+
+  /* ---------- Section shell ---------- */
+  .section{padding:86px 0;}
+  .section.alt{background:var(--white);}
+  .section-head{max-width:640px; margin-bottom:44px;}
+  .section-head .tag{color:var(--crimson); font-weight:700; font-size:14px; margin-bottom:10px; display:block;}
+  .section-head h2{font-size:clamp(26px,3.4vw,38px); margin-bottom:14px;}
+  .section-head p{color:#5b4f49; font-size:16.5px; max-width:56ch;}
+
+  .grid{display:grid; gap:20px;}
+  .grid.cols-3{grid-template-columns:repeat(3,1fr);}
+  .grid.cols-4{grid-template-columns:repeat(4,1fr);}
+  @media (max-width:900px){.grid.cols-3,.grid.cols-4{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:600px){.grid.cols-3,.grid.cols-4{grid-template-columns:1fr;}}
+
+  .card{
+    background:var(--white); border:1px solid #E4D9C4; border-radius:6px; padding:26px;
+    display:flex; flex-direction:column; gap:14px;
+  }
+  .section.alt .card{background:var(--cream);}
+  .icon{width:42px; height:42px; color:var(--crimson);}
+  .card h3{font-size:18px; font-weight:600; line-height:1.3;}
+  .card p{margin:0; color:#5b4f49; font-size:14.5px; flex-grow:1;}
+  .card .go{font-weight:700; color:var(--crimson); font-size:13.5px; display:inline-flex; align-items:center; gap:6px;}
+
+  .split{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;}
+  @media (max-width:860px){.split{grid-template-columns:1fr;}}
+  .plaque{background:var(--crimson); color:var(--cream); border-radius:8px; padding:44px; position:relative;}
+  .plaque .num{font-family:'Fraunces',serif; font-size:52px; color:var(--gold); line-height:1;}
+  .plaque p{color:var(--cream-2); font-size:15.5px; margin-top:14px;}
+
+  .roster{display:grid; grid-template-columns:repeat(2,1fr); gap:14px;}
+  @media (max-width:640px){.roster{grid-template-columns:1fr;}}
+  .roster-item{border:1px solid #E4D9C4; border-radius:6px; padding:18px 20px; background:var(--white); display:flex; justify-content:space-between; align-items:center; gap:10px;}
+  .roster-item span.k{font-weight:600; font-size:15px;}
+  .roster-item span.d{font-size:13px; color:#8a7c74;}
+
+  .note-strip{background:var(--cream-2); border-left:4px solid var(--gold); padding:16px 20px; border-radius:0 4px 4px 0; font-size:14.5px; color:#4a3f38; margin-top:36px;}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--crimson-dark); color:var(--cream-2); padding:64px 0 30px;}
+  .foot-grid{display:grid; grid-template-columns:1.3fr 1fr 1fr 1fr 1fr; gap:32px; padding-bottom:44px; border-bottom:1px solid rgba(244,238,226,.15);}
+  @media (max-width:900px){.foot-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:560px){.foot-grid{grid-template-columns:1fr;}}
+  .foot-grid h4{color:var(--gold); font-family:'Work Sans',sans-serif; font-size:13px; font-weight:700; letter-spacing:.03em; margin-bottom:16px;}
+  .foot-grid a, .foot-grid p{display:block; color:var(--cream-2); font-size:14.5px; margin-bottom:11px; opacity:.92;}
+  .foot-grid a:hover{color:var(--white);}
+  .foot-lock{display:inline-flex; align-items:center; gap:6px;}
+  .foot-lock svg{width:13px; height:13px;}
+  .foot-bottom{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; padding-top:26px; font-size:13.5px; color:#C9B9A8;}
+  .foot-brand{display:flex; align-items:center; gap:10px;}
+  .foot-brand .mark{width:26px; height:26px;}
+
+  .concept-flag{position:fixed; bottom:16px; right:16px; background:var(--ink); color:var(--cream); font-size:12px; font-weight:600; padding:9px 14px; border-radius:20px; z-index:60; box-shadow:0 8px 20px rgba(0,0,0,.25); letter-spacing:.02em;}
+
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;}}
+</style>
+</head>
+<body>
+
+<div class="concept-flag">Redesign concept · not the live site</div>
+
+<header>
+  <div class="wrap navbar">
+    <a class="brand" href="#home">
+      <svg class="mark" viewBox="0 0 44 44" fill="none"><path d="M22 2 L40 22 L22 42 L4 22 Z" stroke="#EFC77A" stroke-width="2"/><path d="M22 12 L32 22 L22 32 L12 22 Z" fill="#EFC77A"/></svg>
+      <span class="brand-text">Denver Alumni Chapter<span>Kappa Alpha Psi Fraternity, Inc.</span></span>
+    </a>
+    <button class="navtoggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="primary" id="primaryNav">
+      <div class="navitem">
+        <button aria-expanded="false">Home <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <div class="dropdown">
+          <a href="#home-welcome">Welcome</a>
+          <a href="#home-tower">Kappa History &amp; Home of Kappa Tower</a>
+          <a href="#home-towers">Kappa Tower I, II &amp; III</a>
+          <a href="#events-golf">Upcoming Events <small>→ Events</small></a>
+          <a href="#programs-foundation">Denver Scholarship Foundation</a>
+          <a href="#events-member">Become a Member / Reclamation</a>
+          <a href="#home-about">About Us</a>
+        </div>
+      </div>
+      <div class="navitem">
+        <button aria-expanded="false">History <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <div class="dropdown">
+          <a href="#history-chapter">Chapter History → Kappa Towers</a>
+          <a href="#history-fraternity">Fraternity History</a>
+          <a href="#history-founders">Founders</a>
+          <a href="#history-objectives">Objectives</a>
+          <a href="https://kapsimwp.com/" target="_blank" rel="noopener">Middle Western Province History <small>↗ external</small></a>
+        </div>
+      </div>
+      <div class="navitem">
+        <button aria-expanded="false">Mile High Nupes <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <div class="dropdown">
+          <a href="#nupes-polemarchs">Past Polemarchs</a>
+          <a href="#nupes-officers">Chapter Officers</a>
+          <a href="#nupes-province">Province Officers</a>
+          <a href="#nupes-committee">Committee Chairmen</a>
+          <a href="#nupes-board">Board of Directors</a>
+          <a href="#nupes-lineage">Lineage / Legacy</a>
+          <a href="#nupes-silhouettes">Kappa Silhouettes</a>
+          <a href="#nupes-store">Store <small>Brothers Only</small></a>
+        </div>
+      </div>
+      <div class="navitem">
+        <button aria-expanded="false">Programs <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <div class="dropdown">
+          <a href="#programs-league">Kappa League</a>
+          <a href="#programs-guide">Guide Right</a>
+          <a href="#programs-foundation">Denver KAΨ Scholarship Foundation</a>
+          <a href="#programs-application">Scholarship Application</a>
+          <a href="#programs-senior">Senior Kappa Affairs</a>
+        </div>
+      </div>
+      <div class="navitem">
+        <button aria-expanded="false">Events <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <div class="dropdown">
+          <a href="#events-sponsor">Become a Sponsor</a>
+          <a href="#events-partner">Partner With Us</a>
+          <a href="#events-golf">Golf Tournament</a>
+          <a href="#events-gallery">Gallery</a>
+          <a href="#events-member">Become a Member / Reclamation</a>
+          <a href="#contact-message">Send a Message</a>
+        </div>
+      </div>
+      <div class="navitem">
+        <button aria-expanded="false">Contact <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <div class="dropdown">
+          <a href="#contact-email">Email the Chapter</a>
+          <a href="#events-sponsor">Become a Sponsor</a>
+          <a href="#events-partner">Partner With Us</a>
+          <a href="#events-member">Become a Member / Reclamation</a>
+          <a href="#contact-links">External Links</a>
+        </div>
+      </div>
+      <a class="navcta" href="#events-member" style="align-self:center; margin-left:6px;">Join / Reclaim</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ---------------- HERO / HOME ---------------- -->
+<section class="hero" id="home">
+  <div class="wrap">
+    <div class="eyebrow-line">Denver Alumni Chapter · Est. February 20, 1954</div>
+    <h1 id="home-welcome">Achievement in every field of human endeavor.</h1>
+    <p class="lede">Serving Denver since 1954 through scholarship, mentorship, and brotherhood — from the Five Points neighborhood to the foot of the Rockies.</p>
+    <div class="hero-actions">
+      <a class="btn btn-gold" href="#programs-foundation">Support the Scholarship Foundation</a>
+      <a class="btn btn-outline" href="#events-member">Become a Member</a>
+    </div>
+  </div>
+  <svg class="skyline" viewBox="0 0 1180 120" preserveAspectRatio="none"><path d="M0,120 L0,70 L60,70 L60,40 L120,40 L120,60 L180,60 L180,20 L230,20 L260,55 L310,55 L340,10 L390,45 L430,45 L430,65 L500,65 L500,30 L560,30 L590,50 L650,50 L680,15 L730,15 L760,60 L820,60 L820,35 L880,35 L910,70 L970,70 L970,50 L1040,50 L1070,25 L1120,25 L1150,60 L1180,60 L1180,120 Z" fill="#F4EEE2" opacity="0.08"/></svg>
+</section>
+
+<section class="section" id="home-about">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">Home</span>
+      <h2>Welcome to the chapter</h2>
+      <p>The six sections below organize everything the chapter does — history, leadership, community programs, events, and how to reach us — so members and neighbors can find their way in.</p>
+    </div>
+    <div class="grid cols-3">
+      <div class="card">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21V9l9-6 9 6v12"/><path d="M9 21v-8h6v8"/></svg>
+        <h3 id="home-tower">Kappa History &amp; Home of Kappa Tower</h3>
+        <p>The story of the chapter and the affordable-housing legacy behind Kappa Tower, a cornerstone of the chapter's community investment.</p>
+        <a class="go" href="#history-chapter">Read the history →</a>
+      </div>
+      <div class="card">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="17" rx="1"/><path d="M8 2v4M16 2v4M3 10h18"/></svg>
+        <h3>Upcoming Events</h3>
+        <p>Golf tournaments, scholarship luncheons, and community drives — see what's next and how to take part.</p>
+        <a class="go" href="#events-golf">View events →</a>
+      </div>
+      <div class="card">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 3 7v6c0 5 4 8 9 9 5-1 9-4 9-9V7z"/></svg>
+        <h3>Denver Scholarship Foundation</h3>
+        <p>Chartered 1987 — over $1M awarded to more than 800 young men pursuing college since founding.</p>
+        <a class="go" href="#programs-foundation">See the foundation →</a>
+      </div>
+      <div class="card">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <h3 id="home-about-us">About Us</h3>
+        <p>A chapter of college-trained men achieving in business, education, and civic life across metro Denver.</p>
+        <a class="go" href="#history-fraternity">Learn who we are →</a>
+      </div>
+      <div class="card">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <h3>Become a Member / Reclamation</h3>
+        <p>For undergraduate transfers and brothers returning to active status in the Denver Alumni Chapter.</p>
+        <a class="go" href="#events-member">Start the process →</a>
+      </div>
+      <div class="card">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        <h3>Kappa Silhouettes</h3>
+        <p>The chapter's affiliated women's auxiliary supporting programs and events year-round.</p>
+        <a class="go" href="#footer-connect">More in the footer →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ---------------- HISTORY ---------------- -->
+<section class="section alt" id="history-chapter">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">History</span>
+      <h2>From Bloomington to Five Points</h2>
+      <p>Two stories, told together: where the fraternity began, and how the Denver chapter grew into the Kappa Tower legacy.</p>
+    </div>
+    <div class="split">
+      <div>
+        <h3 id="history-fraternity" style="font-size:22px; margin-bottom:10px;">Fraternity History</h3>
+        <p style="color:#5b4f49; margin-bottom:22px;">On January 5, 1911, ten students at Indiana University gave birth to a dream that became Kappa Alpha Psi — a brotherhood built on achievement in every field of human endeavor.</p>
+        <h3 style="font-size:22px; margin-bottom:10px;">Denver (CO) Alumni Chapter History → Kappa Towers</h3>
+        <p style="color:#5b4f49;">Chartered February 20, 1954, the Denver Alumni Chapter has served the community for seven decades, culminating in the Kappa Tower housing developments that carry the chapter's mission into bricks and mortar.</p>
+      </div>
+      <div class="plaque">
+        <div class="num">1954</div>
+        <p>Denver Alumni Chapter chartered — the start of a legacy now carried forward through Kappa Tower I, II, and III.</p>
+        <div class="note-strip" style="margin-top:26px; background:rgba(244,238,226,.14); border-left-color:var(--gold); color:var(--cream-2);">
+          Also on this tab: <a href="https://kapsimwp.com/" target="_blank" rel="noopener" style="color:var(--gold); font-weight:700;">Middle Western Province History ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div id="home-towers" style="margin-top:56px;">
+      <h3 style="font-size:20px; margin-bottom:18px;">Kappa Tower I, II &amp; III</h3>
+      <div class="grid cols-3">
+        <div class="card">
+          <h3>Kappa Tower I</h3>
+          <p>The original affordable-housing development and the chapter's flagship community investment.</p>
+        </div>
+        <div class="card">
+          <h3>Kappa Tower II</h3>
+          <p>An expansion of the Tower model, adding units and services for Denver residents.</p>
+        </div>
+        <div class="card">
+          <h3>Kappa Tower III</h3>
+          <p>The newest phase, continuing the chapter's commitment to housing as service.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="split" style="margin-top:56px; align-items:start;">
+      <div class="card" id="history-founders">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <h3>Founders</h3>
+        <p>The ten Indiana University students who founded Kappa Alpha Psi on January 5, 1911, and the legacy they set in motion.</p>
+      </div>
+      <div class="card" id="history-objectives">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+        <h3>Objectives</h3>
+        <p>The founding principles that still guide the fraternity: achievement, unity, and service in every field of human endeavor.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ---------------- MILE HIGH NUPES ---------------- -->
+<section class="section" id="nupes-polemarchs">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">Mile High Nupes</span>
+      <h2>Leadership, past and present</h2>
+      <p>The people who've guided the chapter — its officers, provinces, committees, and the lineage that connects every new member back to 1954.</p>
+    </div>
+    <div class="roster">
+      <div class="roster-item"><span class="k">Past Polemarchs</span><span class="d">Chapter presidents, 1954–today</span></div>
+      <div class="roster-item" id="nupes-officers"><span class="k">Chapter Officers</span><span class="d">Current executive board</span></div>
+      <div class="roster-item" id="nupes-province"><span class="k">Province Officers</span><span class="d">Middle Western Province</span></div>
+      <div class="roster-item" id="nupes-committee"><span class="k">Committee Chairmen</span><span class="d">Program &amp; event leads</span></div>
+      <div class="roster-item" id="nupes-board"><span class="k">Board of Directors</span><span class="d">Foundation governance</span></div>
+      <div class="roster-item" id="nupes-lineage"><span class="k">Lineage / Legacy</span><span class="d">Big-brother lines &amp; history</span></div>
+      <div class="roster-item" id="nupes-silhouettes"><span class="k">Kappa Silhouettes</span><span class="d">Chapter's women's auxiliary</span></div>
+      <div class="roster-item" id="nupes-store"><span class="k">Store <span class="foot-lock" style="display:inline-flex; vertical-align:middle;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:12px;height:12px;"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span></span><span class="d">Brothers only</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ---------------- PROGRAMS ---------------- -->
+<section class="section alt" id="programs-league">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">Programs</span>
+      <h2>Investing in the next generation</h2>
+      <p>Mentorship, scholarship, and service programs that carry the chapter's mission into schools and homes across Denver.</p>
+    </div>
+    <div class="grid cols-4">
+      <div class="card">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 10 12 4 2 10l10 6 10-6z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg>
+        <h3>Kappa League</h3>
+        <p>Leadership and development for young men in grades 9–12, building tomorrow's leaders today.</p>
+      </div>
+      <div class="card" id="programs-guide">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20l-8-4V6l8 4 8-4v10z"/></svg>
+        <h3>Guide Right</h3>
+        <p>The fraternity's flagship youth mentorship program, guiding students toward college and career.</p>
+      </div>
+      <div class="card" id="programs-foundation">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 3 7v6c0 5 4 8 9 9 5-1 9-4 9-9V7z"/></svg>
+        <h3>Denver KAΨ Scholarship Foundation</h3>
+        <p>501(c)(3) since 1989 — over $1M awarded to deserving young men through the Annual Scholarship Luncheon.</p>
+      </div>
+      <div class="card" id="programs-application">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg>
+        <h3>Scholarship Application</h3>
+        <p>Apply for the chapter's Annual Scholarship — open to deserving young men enrolled or enrolling in college.</p>
+        <a class="go" href="#contact-email">Get the application →</a>
+      </div>
+      <div class="card" id="programs-senior">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+        <h3>Senior Kappa Affairs</h3>
+        <p>Programming and fellowship supporting the chapter's senior brothers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ---------------- EVENTS ---------------- -->
+<section class="section" id="events-golf">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">Events</span>
+      <h2>Where the chapter comes together</h2>
+      <p>From the annual golf tournament to member reclamation, this is the chapter's calendar and how to get involved.</p>
+    </div>
+    <div class="grid cols-3">
+      <div class="card" id="events-sponsor">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 12V8H6a2 2 0 0 1 0-4h12v4"/><path d="M4 6v14a2 2 0 0 0 2 2h14v-4"/></svg>
+        <h3>Become a Sponsor</h3>
+        <p>Back chapter programs and events with a corporate or individual sponsorship.</p>
+        <a class="go" href="#contact-email">Get sponsorship info →</a>
+      </div>
+      <div class="card" id="events-partner">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+        <h3>Partner With Us</h3>
+        <p>Organizations and businesses collaborating with the chapter on community initiatives.</p>
+        <a class="go" href="#contact-email">Start a partnership →</a>
+      </div>
+      <div class="card">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>
+        <h3>Golf Tournament</h3>
+        <p>The chapter's signature annual fundraiser supporting the Scholarship Foundation.</p>
+        <a class="go" href="https://events.golfstatus.com" target="_blank" rel="noopener">Register →</a>
+      </div>
+      <div class="card" id="events-gallery">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="9" r="1.6"/><path d="M21 16l-5-5-6 6"/></svg>
+        <h3>Gallery</h3>
+        <p>Photos from luncheons, tournaments, giveaways, and chapter milestones.</p>
+      </div>
+      <div class="card" id="events-member">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <h3>Become a Member / Reclamation</h3>
+        <p>Undergraduate transfer or returning to active status — start here.</p>
+        <a class="go" href="#contact-email">Begin the process →</a>
+      </div>
+      <div class="card" id="contact-message">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <h3>Send a Message</h3>
+        <p>A quick line to chapter leadership about events, press, or general questions.</p>
+        <a class="go" href="#contact-email">Go to contact →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ---------------- CONTACT ---------------- -->
+<section class="section alt" id="contact-email">
+  <div class="wrap split">
+    <div>
+      <span class="tag">Contact</span>
+      <h2 style="margin-bottom:16px;">Reach the chapter</h2>
+      <p style="color:#5b4f49; margin-bottom:28px;">Whether you're sponsoring an event, partnering on a program, or reclaiming your membership, this is the front door.</p>
+      <div class="note-strip">
+        Denver Alumni Chapter of Kappa Alpha Psi, Inc.<br>
+        2160 North Downing Street, Denver, CO 80205<br>
+        (720) 295-6342 · KOE@denverkappas.org
+      </div>
+    </div>
+    <div class="grid" style="grid-template-columns:1fr; gap:14px;">
+      <div class="roster-item"><span class="k">Email the Chapter</span><span class="d">KOE@denverkappas.org</span></div>
+      <div class="roster-item"><span class="k">Become a Sponsor</span><span class="d">See events →</span></div>
+      <div class="roster-item"><span class="k">Partner With Us</span><span class="d">See events →</span></div>
+      <div class="roster-item"><span class="k">Become a Member / Reclamation</span><span class="d">See events →</span></div>
+    </div>
+  </div>
+  <div class="wrap" id="contact-links" style="margin-top:56px;">
+    <h3 style="font-size:20px; margin-bottom:18px;">External Links</h3>
+    <div class="grid cols-3">
+      <div class="card">
+        <h3>Facebook</h3>
+        <p>Chapter updates, photos, and event announcements.</p>
+      </div>
+      <div class="card">
+        <h3>Instagram</h3>
+        <p>Behind-the-scenes moments from brothers across Denver.</p>
+      </div>
+      <div class="card">
+        <h3>Scholarship Foundation</h3>
+        <p><a href="http://dkapsfoundation.org" target="_blank" rel="noopener" style="color:var(--crimson); font-weight:700;">dkapsfoundation.org ↗</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ---------------- FOOTER (Additional column) ---------------- -->
+<footer id="footer-connect">
+  <div class="wrap">
+    <div class="foot-grid" style="grid-template-columns:1.6fr 1fr 1fr 1fr;">
+      <div>
+        <div class="foot-brand" style="margin-bottom:16px;">
+          <svg class="mark" viewBox="0 0 44 44" fill="none"><path d="M22 2 L40 22 L22 42 L4 22 Z" stroke="#EFC77A" stroke-width="2"/><path d="M22 12 L32 22 L22 32 L12 22 Z" fill="#EFC77A"/></svg>
+          <span style="font-family:'Fraunces',serif; font-weight:600; color:var(--cream); font-size:16px;">Denver Alumni Chapter</span>
+        </div>
+        <p>Kappa Alpha Psi Fraternity, Inc. — serving metro Denver since 1954.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <a href="#home">Home</a>
+        <a href="#history-chapter">History</a>
+        <a href="#nupes-polemarchs">Mile High Nupes</a>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <a href="#programs-league">Programs</a>
+        <a href="#events-golf">Events</a>
+        <a href="#contact-email">Contact</a>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <a href="#contact-links">Facebook ↗</a>
+        <a href="#contact-links">Instagram ↗</a>
+        <a href="http://dkapsfoundation.org" target="_blank" rel="noopener">Scholarship Foundation ↗</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 The Denver Alumni Chapter of Kappa Alpha Psi Fraternity, Inc. — redesign concept.</span>
+      <span>2160 Downing St, Denver, CO 80205 · (720) 295-6342</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const nav = document.getElementById('primaryNav');
+  toggle.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+  document.querySelectorAll('.navitem > button').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      if (window.innerWidth <= 980) {
+        e.preventDefault();
+        btn.parentElement.classList.toggle('expanded');
+      }
+    });
+  });
+  document.querySelectorAll('nav.primary a').forEach(a => {
+    a.addEventListener('click', () => { nav.classList.remove('open'); });
+  });
+</script>
+</body>
+</html>
