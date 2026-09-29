@@ -1,0 +1,77 @@
+<!-- ============================================================
+  GALLERY SECTION
+  Paste this where you want the gallery on events.html
+  (the nav already links to events.html#gallery).
+  Replace YOUR_FOLDER_ID below with your "Gallery - Approved" folder ID.
+  ============================================================ -->
+<section id="gallery" class="gallery-section">
+  <div class="wrap">
+    <span class="tag">Events</span>
+    <h2>Chapter Gallery</h2>
+    <p class="gallery-intro">
+      Moments from our events, service projects, and gatherings.
+      Have photos or video from an event? Share them with the chapter.
+    </p>
+
+    <div class="gallery-upload">
+      <div>
+        <h3>Share your photos</h3>
+        <p>Upload through our form. Submissions are reviewed before they appear here.</p>
+      </div>
+      <a class="gallery-btn"
+         href="https://forms.gle/GvxVsMERU46vPLr38"
+         target="_blank" rel="noopener">Submit Photos &#8599;</a>
+    </div>
+
+    <div class="gallery-embed">
+      <iframe
+        src="https://drive.google.com/embeddedfolderview?id=YOUR_FOLDER_ID#grid"
+        loading="lazy"
+        title="Chapter photo gallery"></iframe>
+    </div>
+  </div>
+</section>
+
+<style>
+  .gallery-section { padding: 56px 0; }
+  .gallery-section h2 { margin: 6px 0 10px; }
+  .gallery-intro { max-width: 60ch; margin-bottom: 28px; }
+
+  .gallery-upload {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 22px 24px;
+    margin-bottom: 28px;
+    border: 1px solid rgba(239, 199, 122, 0.45);
+    border-radius: 12px;
+    background: rgba(239, 199, 122, 0.08);
+  }
+  .gallery-upload h3 { margin: 0 0 4px; }
+  .gallery-upload p { margin: 0; }
+
+  .gallery-btn {
+    display: inline-block;
+    padding: 12px 22px;
+    border-radius: 999px;
+    background: #EFC77A;
+    color: #1a1a1a;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .gallery-btn:hover { filter: brightness(1.08); }
+
+  .gallery-embed iframe {
+    width: 100%;
+    height: 600px;
+    border: 0;
+    border-radius: 12px;
+    background: #fff;
+  }
+  @media (max-width: 600px) {
+    .gallery-embed iframe { height: 480px; }
+  }
+</style>
