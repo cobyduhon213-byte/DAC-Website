@@ -88,7 +88,15 @@ nav.primary{display:flex; align-items:center; gap:2px;}
 }
 
 /* ---------- Hero ---------- */
-.hero{background:linear-gradient(180deg,var(--crimson) 0%, var(--crimson-dark) 100%); color:var(--cream); position:relative; overflow:hidden;}
+.hero{color:var(--cream); position:relative; overflow:hidden;}
+/* Denver skyline photo with a crimson tint over it (scoped to the page hero section) */
+section.hero{
+  /* Skyline image is already crimson-tinted; this light overlay just keeps the text readable */
+  background:
+    linear-gradient(180deg, rgba(78,15,34,.42) 0%, rgba(78,15,34,.30) 50%, rgba(78,15,34,.55) 100%),
+    url('images/denver-skyline.jpg') center 65% / cover no-repeat;
+  background-color:var(--crimson-dark);
+}
 .hero .wrap{padding:64px 28px 0; position:relative; z-index:2;}
 .eyebrow-line{display:flex; align-items:center; gap:12px; margin-bottom:22px; color:var(--gold); font-weight:600; font-size:14px;}
 .eyebrow-line::before{content:""; width:34px; height:2px; background:var(--gold);}
