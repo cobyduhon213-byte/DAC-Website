@@ -2,105 +2,157 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Reclaim Your Membership | Denver Alumni Chapter of Kappa Alpha Psi</title>
-<style>
-:root{--crimson:#990000;--crimson-dark:#6b0000;--cream:#f6efe0;--ink:#1d1a17;--gold:#c9a24a;--white:#fff}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:Georgia,"Times New Roman",serif;color:var(--ink);background:var(--cream);line-height:1.6}
-h1,h2,.btn,nav a,label,button{font-family:"Helvetica Neue",Arial,sans-serif}
-header{background:var(--crimson-dark);position:sticky;top:0;z-index:10;border-bottom:3px solid var(--gold)}
-.bar{max-width:1000px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:.6rem 1.2rem}
-.home{display:flex;align-items:center;gap:.7rem;color:var(--cream);text-decoration:none;font-weight:700}
-.home img{height:48px;width:auto}
-nav{display:flex;gap:.6rem}
-nav a{text-decoration:none;font-size:.9rem;padding:.5rem 1.1rem;border-radius:4px;border:2px solid var(--gold);font-weight:700;color:var(--cream)}
-nav a.join{background:var(--gold);color:var(--ink)}
-nav a.cur{box-shadow:0 3px 0 var(--cream)}
-nav a:hover{opacity:.85}
-.hero{background:linear-gradient(160deg,var(--crimson),var(--crimson-dark));color:var(--cream);text-align:center;padding:4rem 1.2rem}
-.hero h1{font-size:clamp(2rem,5vw,3rem)}
-.hero p{max-width:620px;margin:1rem auto 2rem;font-size:1.15rem}
-.btn{display:inline-block;padding:.8rem 1.6rem;border-radius:4px;text-decoration:none;font-weight:700;border:2px solid var(--gold);background:var(--gold);color:var(--ink);cursor:pointer;font-size:1rem}
-.btn:hover{opacity:.9}
-.btn.out{background:transparent;color:var(--cream)}
-.btns{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
-.btn.out.dark{color:var(--crimson);border-color:var(--crimson)}
-main{max-width:1000px;margin:auto;padding:3rem 1.2rem}
-h2.s{color:var(--crimson-dark);margin:2.5rem 0 1rem;font-size:1.6rem}
-h2.s:first-child{margin-top:0}
-.card{background:var(--white);border-top:5px solid var(--crimson);padding:1.5rem 1.8rem;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
-.card ul{margin:.6rem 0 0 1.2rem}
-.steps{counter-reset:s;list-style:none}
-.steps li{counter-increment:s;background:var(--white);margin-bottom:.8rem;padding:1rem 1rem 1rem 4rem;position:relative;border-radius:4px}
-.steps li::before{content:counter(s);position:absolute;left:1rem;top:50%;transform:translateY(-50%);width:2.2rem;height:2.2rem;border-radius:50%;background:var(--crimson);color:var(--cream);display:grid;place-items:center;font-family:Arial,sans-serif;font-weight:700}
-form{background:var(--white);padding:2rem;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.08);display:grid;gap:1rem}
-.row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-@media(max-width:600px){.row{grid-template-columns:1fr}nav a{padding:.4rem .7rem;font-size:.8rem}.home span{display:none}}
-label{font-weight:700;font-size:.9rem;display:block;margin-bottom:.25rem}
-input,textarea{width:100%;padding:.65rem;border:1px solid #bbb;border-radius:4px;font:inherit}
-input:focus,textarea:focus{outline:2px solid var(--crimson)}
-.note{font-size:.85rem;color:#555}
-#msg{font-weight:700;color:var(--crimson)}
-.alt{text-align:center;margin-top:2rem}
-
-footer{background:var(--ink);color:var(--cream);text-align:center;padding:2rem 1rem;font-size:.9rem;font-family:Arial,sans-serif}
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Reclaim Your Membership &mdash; You have been here before. Come back, reconnect with your brothers, and pick up where you left off.">
+<title>Reclaim Your Membership &mdash; Denver (CO) Alumni Chapter of Kappa Alpha Psi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header><div class="bar">
-  <a class="home" href="#top" aria-label="Home">
-    <img src="images/denver-chapter-logo.png" alt="Denver Alumni Chapter logo" onerror="this.style.display='none'">
-    <span>Denver Alumni Chapter</span>
-  </a>
-  <nav><a href="join.html" class="join">Join</a><a href="reclaim.html" class="cur">Reclaim</a></nav>
-</div></header>
+<div class="concept-flag">Redesign concept &middot; not the live site</div>
 
-<section class="hero" id="top">
-  <h1>Reclaim Your Place</h1>
-  <p>You have been here before. Come back, reconnect with your brothers, and pick up where you left off.</p>
-  <div class="btns">
-    <a class="btn out" href="join.html">Join the Chapter</a>
-    <a class="btn" href="#apply">Reclaim Membership</a>
+<header>
+  <div class="wrap navbar">
+    <a class="brand" href="index.html" aria-label="Denver Alumni Chapter of Kappa Alpha Psi &mdash; Home">
+      <img class="brand-logo" src="images/denver-chapter-logo.png" alt="Denver Alumni Chapter of Kappa Alpha Psi Fraternity, Inc. &mdash; Est. 1954" width="86" height="62">
+    </a>
+    <button class="navtoggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="primary" id="primaryNav">
+      <div class="navitem">
+        <button class="" aria-expanded="false">Home <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <div class="dropdown">
+          <a href="index.html">Welcome</a>
+        </div>
+      </div>
+      <div class="navitem">
+        <button class="" aria-expanded="false">History <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <div class="dropdown">
+          <a href="denver-history.html">Denver Alumni History</a>
+          <a href="kappa-tower.html">Kappa Tower</a>
+          <a href="fraternity-history.html">Fraternity History</a>
+          <a href="founders-objectives.html">Founders &amp; Objectives</a>
+          <a href="middle-western-province.html">Middle Western Province</a>
+        </div>
+      </div>
+      <div class="navitem">
+        <button class="" aria-expanded="false">Mile High Nupes <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <div class="dropdown">
+          <a href="chapter-officers.html">Chapter Officers</a>
+          <a href="province-officers.html">Province Officers</a>
+          <a href="committee-chairmen.html">Committee Chairmen</a>
+          <a href="board-of-directors.html">Board of Directors</a>
+          <a href="past-polemarchs.html">Past Polemarchs</a>
+          <a href="lineage-legacy.html">Lineage &amp; Legacy</a>
+        </div>
+      </div>
+      <div class="navitem">
+        <button class="" aria-expanded="false">Programs <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <div class="dropdown">
+          <a href="kappa-league.html">Kappa League</a>
+          <a href="guide-right.html">Guide Right</a>
+          <a href="scholarship-foundation.html">Scholarship Foundation</a>
+          <a href="senior-kappa-affairs.html">Senior Kappa Affairs</a>
+        </div>
+      </div>
+      <div class="navitem">
+        <button class="" aria-expanded="false">Events <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <div class="dropdown">
+          <a href="events.html#upcoming">Upcoming Events</a>
+          <a href="events.html#golf">Golf Tournament</a>
+          <a href="events.html#sponsor">Sponsor &amp; Partner</a>
+          <a href="events.html#gallery">Gallery</a>
+        </div>
+      </div>
+      <div class="navitem">
+        <button class="" aria-expanded="false">Contact <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <div class="dropdown">
+          <a href="contact.html#touch">Get in Touch</a>
+          <a href="contact.html#sponsor">Sponsor &amp; Partner</a>
+          <a href="join.html">Join the Chapter</a>
+          <a href="reclaim.html">Reclaim Your Membership</a>
+          <a href="contact.html#links">External Links</a>
+        </div>
+      </div>
+      <a class="navcta" href="join.html" style="align-self:center; margin-left:6px;">Join</a>
+      <a class="navcta navcta-outline" href="reclaim.html" style="align-self:center;">Reclaim</a>
+    </nav>
+  </div>
+</header>
+<section class="page-hero">
+  <div class="wrap">
+    <span class="tag">Reclamation</span>
+    <h1>Reclaim Your Membership</h1>
+    <p>You have been here before. Come back, reconnect with your brothers, and pick up where you left off.</p>
   </div>
 </section>
-
-<main>
-  <h2 class="s">Who this is for</h2>
-  <div class="card"><ul><li>Brothers who were previously active with the Denver chapter</li><li>Brothers whose membership lapsed and want to reactivate</li><li>Brothers returning to Denver after time away</li></ul></div>
-
-  <h2 class="s">How It Works</h2>
-  <ol class="steps"><li><strong>Submit the form below.</strong> Tell us when you were last active and how to reach you.</li><li><strong>Standing review.</strong> A chapter officer will look up your record and confirm your status.</li><li><strong>Reinstatement.</strong> We will walk you through any outstanding dues or paperwork.</li><li><strong>Welcome back.</strong> Attend a meeting and reconnect with your line and lineage.</li></ol>
-
-  <h2 class="s" id="apply">Reclaim Your Membership</h2>
-  <form id="f">
-    <div class="row">
-      <div><label for="name">Full name</label><input id="name" type="text" required ></div>
-      <div><label for="email">Email</label><input id="email" type="email" required ></div>
+<section class="section" id="apply">
+  <div class="wrap split" style="align-items:start;">
+    <div>
+      <span class="tag" style="color:var(--crimson); font-weight:700; font-size:14px; display:block; margin-bottom:10px;">Who this is for</span>
+      <div class="card"><ul style="margin:0; padding-left:18px; color:#5b4f49; font-size:15px; display:grid; gap:8px;"><li>Brothers who were previously active with the Denver chapter</li><li>Brothers whose membership lapsed and want to reactivate</li><li>Brothers returning to Denver after time away</li></ul></div>
+      <h2 style="font-size:26px; margin-top:34px;">How it works</h2>
+      <ol class="steps"><li><strong>Submit the form.</strong> Tell us when you were last active and how to reach you.</li><li><strong>Standing review.</strong> A chapter officer will look up your record and confirm your status.</li><li><strong>Reinstatement.</strong> We will walk you through any outstanding dues or paperwork.</li><li><strong>Welcome back.</strong> Attend a meeting and reconnect with your line and lineage.</li></ol>
     </div>
-    <div class="row">
-      <div><label for="phone">Phone</label><input id="phone" type="tel" ></div>
-      <div><label for="city">City / State</label><input id="city" type="text" ></div>
+    <div>
+      <form class="form-card" id="f">
+        <h2 style="font-size:24px;">Reclaim Your Membership</h2>
+        <div class="row"><div><label for="name">Full name</label><input id="name" type="text" required></div><div><label for="email">Email</label><input id="email" type="email" required></div></div>
+        <div class="row"><div><label for="phone">Phone</label><input id="phone" type="tel"></div><div><label for="city">City / State</label><input id="city" type="text"></div></div>
+        <div class="row"><div><label for="chap">Undergraduate chapter</label><input id="chap" type="text"></div><div><label for="year">Initiation year &amp; line name</label><input id="year" type="text" placeholder="e.g. Spring 2008 - Line Name"></div></div>
+        <div><label for="last">Last year active with the Denver chapter</label><input id="last" type="text"></div>
+        <div><label for="notes">Anything else we should know?</label><textarea id="notes" rows="4"></textarea></div>
+        <button class="btn btn-gold" type="submit" style="justify-content:center; cursor:pointer; border:0;">Submit Reclaim Request</button>
+        <p class="form-note">This opens an email to the chapter with your details. No information is stored on this page.</p>
+        <p class="form-msg" id="msg" role="status"></p>
+      </form>
+      <p class="swap-link"><a class="go" href="join.html" style="color:var(--crimson); font-weight:700;">New to the chapter? Join here &rarr;</a></p>
     </div>
-    <div class="row">
-      <div><label for="chap">Undergraduate chapter</label><input id="chap" type="text" ></div>
-      <div><label for="year">Initiation year &amp; line name</label><input id="year" type="text" placeholder="e.g. Spring 2008 - Line Name"></div>
+  </div>
+</section>
+<footer id="footer-connect">
+  <div class="wrap">
+    <div class="foot-grid" style="grid-template-columns:1.6fr 1fr 1fr 1fr;">
+      <div>
+        <div class="foot-brand" style="margin-bottom:16px;">
+          <svg class="mark" viewBox="0 0 44 44" fill="none"><path d="M22 2 L40 22 L22 42 L4 22 Z" stroke="#EFC77A" stroke-width="2"/><path d="M22 12 L32 22 L22 32 L12 22 Z" fill="#EFC77A"/></svg>
+          <span style="font-family:'Fraunces',serif; font-weight:600; color:var(--cream); font-size:16px;">Denver Alumni Chapter</span>
+        </div>
+        <p>Kappa Alpha Psi Fraternity, Inc. &mdash; serving metro Denver since 1954.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <a href="index.html">Home</a>
+        <a href="history.html">History</a>
+        <a href="mile-high-nupes.html">Mile High Nupes</a>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <a href="programs.html">Programs</a>
+        <a href="events.html">Events</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <a href="contact.html#links">Facebook &#8599;</a>
+        <a href="contact.html#links">Instagram &#8599;</a>
+        <a href="http://dkapsfoundation.org" target="_blank" rel="noopener">Scholarship Foundation &#8599;</a>
+        <a href="https://denverkappas.org/store" target="_blank" rel="noopener">Store (Brothers Only) &#8599;</a>
+      </div>
     </div>
-    <div><label for="last">Last year active with the Denver chapter</label><input id="last"></div>
-    <div><label for="notes">Anything else we should know?</label><textarea id="notes" rows="4"></textarea></div>
-    <button class="btn" type="submit">Submit Reclaim Request</button>
-    <p class="note">This opens an email to the chapter with your details. No information is stored on this page.</p>
-    <p id="msg" role="status"></p>
-  </form>
-  <p class="alt"><a class="btn out dark" href="join.html">New to the chapter? Join here &rarr;</a></p>
-</main>
+    <div class="foot-bottom">
+      <span>&copy; 2026 Denver Alumni Chapter of Kappa Alpha Psi Fraternity, Inc.</span>
+      <span>Achievement in every field of human endeavor.</span>
+    </div>
+  </div>
+</footer>
 
-<footer><p>&copy; <span id="yr"></span> Denver Alumni Chapter of Kappa Alpha Psi Fraternity, Inc.</p></footer>
-
+<script src="script.js"></script>
 <script>
   var CHAPTER_EMAIL = "chapter@example.org"; // TODO: replace with the chapter's real contact email
-  document.getElementById("yr").textContent = new Date().getFullYear();
   document.getElementById("f").addEventListener("submit", function(e){
     e.preventDefault();
     var v = function(id){ return document.getElementById(id).value.trim(); };
