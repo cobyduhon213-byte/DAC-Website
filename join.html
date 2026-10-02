@@ -16,7 +16,7 @@
 <header>
   <div class="wrap navbar">
     <a class="brand" href="index.html" aria-label="Denver Alumni Chapter of Kappa Alpha Psi &mdash; Home">
-      <img class="brand-logo" src="denver-chapter-logo.png" alt="Denver Alumni Chapter of Kappa Alpha Psi Fraternity, Inc. &mdash; Est. 1954" width="86" height="62">
+      <img class="brand-logo" src="images/denver-chapter-logo.png" alt="Denver Alumni Chapter of Kappa Alpha Psi Fraternity, Inc. &mdash; Est. 1954" width="86" height="62">
     </a>
     <button class="navtoggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
@@ -89,10 +89,11 @@
   </div>
 </section>
 <section class="section" id="apply">
-  <div class="wrap split" style="align-items:start;">
+  <div class="wrap three-col">
+
     <div>
       <span class="tag" style="color:var(--crimson); font-weight:700; font-size:14px; display:block; margin-bottom:10px;">Get Involved</span>
-      <h2 style="font-size:clamp(26px,3.2vw,36px); margin-bottom:18px;">Becoming a member of Kappa Alpha Psi&reg;</h2>
+      <h2 style="font-size:clamp(24px,2.6vw,32px); margin-bottom:18px;">Becoming a member of Kappa Alpha Psi&reg;</h2>
       <div class="prose">
         <p>Membership is a solemn commitment. To this Fraternity, the maker of the commitment becomes synonymous with the commitment itself. Membership in Kappa Alpha Psi&reg; is a lifelong dedication to the ideas and lofty purposes of Kappa Alpha Psi&reg;, which considers for membership only those aspirants whose personal, social and academic qualifications are acceptable to both the College and Fraternity.</p>
         <p>Expectations concerning maturity and dedication are made upon new members and established members alike.</p>
@@ -100,27 +101,32 @@
         <p>Dedication means putting those characteristics of maturity into a lifelong program of action to advance the goals and purposes of Kappa Alpha Psi. We expect our members to be dedicated.</p>
         <p>But do not let personal goals supersede those of the Fraternity. A person who feels he would do the Fraternity a favor by joining is not worthy of membership. No one who holds himself superior to the Brotherhood of Kappa Alpha Psi is worthy of this distinction.</p>
         <p>Kappa Alpha Psi is not interested in the simple accumulation of members and chapters. Its emphasis, however, is in the quality and integrity of its membership. Membership quality manifests itself through an intangible element of brotherhood we call &ldquo;that Good Old Kappa Spirit.&rdquo;</p>
-        <h3 style="font-size:20px; margin:26px 0 12px;">Acceptable qualities of Kappa Alpha Psi members include:</h3>
-        <ul class="qualities">
-          <li>The disposition to live in close companionship with men of similar values</li>
-          <li>The wisdom to abide by the will of the majority without sacrificing individuality</li>
-          <li>The discretion to refrain from destructive criticism while seeking to remove the causes of such criticism</li>
-          <li>The acceptance of responsibility for any effort that moves the group forward</li>
-          <li>The desire to strive for, and ultimately achieve, excellence in everything you do</li>
-          <li>The commitment to train for leadership</li>
-          <li>The resolution to give lifelong financial support and commitment to the maintenance and development of the Fraternity&rsquo;s programs and purposes</li>
-        </ul>
-        <p style="margin-top:22px;"><strong>If you are interested in becoming a member of the Denver Alumni Chapter of Kappa Alpha Psi Fraternity, Inc., please complete the form and we will be in touch.</strong></p>
       </div>
+    </div>
+
+    <div>
+      <h2 style="font-size:clamp(24px,2.6vw,32px); margin:0 0 18px;">Acceptable qualities of Kappa Alpha Psi members include:</h2>
+      <ul class="qualities">
+        <li>The disposition to live in close companionship with men of similar values</li>
+        <li>The wisdom to abide by the will of the majority without sacrificing individuality</li>
+        <li>The discretion to refrain from destructive criticism while seeking to remove the causes of such criticism</li>
+        <li>The acceptance of responsibility for any effort that moves the group forward</li>
+        <li>The desire to strive for, and ultimately achieve, excellence in everything you do</li>
+        <li>The commitment to train for leadership</li>
+        <li>The resolution to give lifelong financial support and commitment to the maintenance and development of the Fraternity&rsquo;s programs and purposes</li>
+      </ul>
+      <div class="prose"><p style="margin-top:22px;"><strong>If you are interested in becoming a member of the Denver Alumni Chapter of Kappa Alpha Psi Fraternity, Inc., please complete the form and we will be in touch.</strong></p></div>
+    </div>
+
     <div>
       <form class="form-card" id="f">
         <h2 style="font-size:24px;">Membership Interest Form</h2>
-        <div class="row"><div><label for="name">Full name</label><input id="name" type="text" required></div><div><label for="email">Email</label><input id="email" type="email" required></div></div>
-        <div class="row"><div><label for="phone">Phone</label>
-          <input id="phone" type="tel">
-        <div><label for="notes">Why do you want to become a member of Kappa Alpha Psi (required)</label>
-          <textarea id="notes" rows="4">
-          </textarea></div>
+        <div class="row">
+          <div><label for="name">Full name</label><input id="name" type="text" required></div>
+          <div><label for="email">Email</label><input id="email" type="email" required></div>
+        </div>
+        <div><label for="phone">Phone</label><input id="phone" type="tel"></div>
+        <div><label for="notes">Why do you want to become a member of Kappa Alpha Psi (required)</label><textarea id="notes" rows="4" required></textarea></div>
         <button class="btn btn-gold" type="submit" style="justify-content:center; cursor:pointer; border:0;">Submit Join Request</button>
         <p class="form-note">This opens an email to the chapter with your details. No information is stored on this page.</p>
         <p class="form-msg" id="msg" role="status"></p>
@@ -134,6 +140,7 @@
         <strong>Email:</strong> <a href="mailto:KOE@denverkappas.org" style="color:var(--crimson); font-weight:700;">KOE@denverkappas.org</a></p>
       </div>
     </div>
+
   </div>
 </section>
 <section class="section alt" id="photos">
@@ -195,11 +202,7 @@
       "Name: " + v("name"),
       "Email: " + v("email"),
       "Phone: " + v("phone"),
-      "Location: " + v("city"),
-      "Undergraduate chapter: " + v("chap"),
-      "Initiation year / line: " + v("year"),
-      "Previous alumni chapter (if any): " + v("from"),
-      "Notes: " + v("notes")
+      "Why I want to become a member: " + v("notes")
     ];
     var subject = encodeURIComponent("Join Request - " + v("name"));
     window.location.href = "mailto:" + CHAPTER_EMAIL + "?subject=" + subject + "&body=" + encodeURIComponent(lines.join("\n"));
