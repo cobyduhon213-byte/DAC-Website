@@ -68,6 +68,8 @@ nav.primary{display:flex; align-items:center; gap:2px;}
   background:var(--gold); color:var(--crimson-dark)!important; border-radius:3px;
   padding:10px 18px!important; font-weight:700!important;
 }
+.navcta-outline{background:transparent!important; color:var(--gold)!important; border:2px solid var(--gold); padding:8px 16px!important;}
+.navcta-outline:hover{background:var(--gold)!important; color:var(--crimson-dark)!important;}
 .navtoggle{display:none; background:none; border:2px solid var(--cream-2); border-radius:4px; padding:8px 10px; color:var(--cream);}
 .navtoggle svg{width:20px; height:20px; display:block;}
 

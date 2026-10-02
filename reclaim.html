@@ -14,13 +14,19 @@ header{background:var(--crimson-dark);position:sticky;top:0;z-index:10;border-bo
 .bar{max-width:1000px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:.6rem 1.2rem}
 .home{display:flex;align-items:center;gap:.7rem;color:var(--cream);text-decoration:none;font-weight:700}
 .home img{height:48px;width:auto}
-nav a{color:var(--cream);text-decoration:none;margin-left:1.2rem;font-size:.95rem}
-nav a:hover,nav a.cur{color:var(--gold)}
+nav{display:flex;gap:.6rem}
+nav a{text-decoration:none;font-size:.9rem;padding:.5rem 1.1rem;border-radius:4px;border:2px solid var(--gold);font-weight:700;color:var(--cream)}
+nav a.join{background:var(--gold);color:var(--ink)}
+nav a.cur{box-shadow:0 3px 0 var(--cream)}
+nav a:hover{opacity:.85}
 .hero{background:linear-gradient(160deg,var(--crimson),var(--crimson-dark));color:var(--cream);text-align:center;padding:4rem 1.2rem}
 .hero h1{font-size:clamp(2rem,5vw,3rem)}
 .hero p{max-width:620px;margin:1rem auto 2rem;font-size:1.15rem}
 .btn{display:inline-block;padding:.8rem 1.6rem;border-radius:4px;text-decoration:none;font-weight:700;border:2px solid var(--gold);background:var(--gold);color:var(--ink);cursor:pointer;font-size:1rem}
 .btn:hover{opacity:.9}
+.btn.out{background:transparent;color:var(--cream)}
+.btns{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
+.btn.out.dark{color:var(--crimson);border-color:var(--crimson)}
 main{max-width:1000px;margin:auto;padding:3rem 1.2rem}
 h2.s{color:var(--crimson-dark);margin:2.5rem 0 1rem;font-size:1.6rem}
 h2.s:first-child{margin-top:0}
@@ -31,14 +37,14 @@ h2.s:first-child{margin-top:0}
 .steps li::before{content:counter(s);position:absolute;left:1rem;top:50%;transform:translateY(-50%);width:2.2rem;height:2.2rem;border-radius:50%;background:var(--crimson);color:var(--cream);display:grid;place-items:center;font-family:Arial,sans-serif;font-weight:700}
 form{background:var(--white);padding:2rem;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.08);display:grid;gap:1rem}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-@media(max-width:600px){.row{grid-template-columns:1fr}nav a{margin-left:.7rem}}
+@media(max-width:600px){.row{grid-template-columns:1fr}nav a{padding:.4rem .7rem;font-size:.8rem}.home span{display:none}}
 label{font-weight:700;font-size:.9rem;display:block;margin-bottom:.25rem}
 input,textarea{width:100%;padding:.65rem;border:1px solid #bbb;border-radius:4px;font:inherit}
 input:focus,textarea:focus{outline:2px solid var(--crimson)}
 .note{font-size:.85rem;color:#555}
 #msg{font-weight:700;color:var(--crimson)}
 .alt{text-align:center;margin-top:2rem}
-.alt a{color:var(--crimson);font-weight:700}
+
 footer{background:var(--ink);color:var(--cream);text-align:center;padding:2rem 1rem;font-size:.9rem;font-family:Arial,sans-serif}
 </style>
 </head>
@@ -48,13 +54,16 @@ footer{background:var(--ink);color:var(--cream);text-align:center;padding:2rem 1
     <img src="images/denver-chapter-logo.png" alt="Denver Alumni Chapter logo" onerror="this.style.display='none'">
     <span>Denver Alumni Chapter</span>
   </a>
-  <nav><a href="join.html">Join</a><a href="reclaim.html" class="cur">Reclaim</a></nav>
+  <nav><a href="join.html" class="join">Join</a><a href="reclaim.html" class="cur">Reclaim</a></nav>
 </div></header>
 
 <section class="hero" id="top">
   <h1>Reclaim Your Place</h1>
   <p>You have been here before. Come back, reconnect with your brothers, and pick up where you left off.</p>
-  <a class="btn" href="#apply">Get Started</a>
+  <div class="btns">
+    <a class="btn out" href="join.html">Join the Chapter</a>
+    <a class="btn" href="#apply">Reclaim Membership</a>
+  </div>
 </section>
 
 <main>
@@ -84,7 +93,7 @@ footer{background:var(--ink);color:var(--cream);text-align:center;padding:2rem 1
     <p class="note">This opens an email to the chapter with your details. No information is stored on this page.</p>
     <p id="msg" role="status"></p>
   </form>
-  <p class="alt"><a href="join.html">New to the chapter? Join here &rarr;</a></p>
+  <p class="alt"><a class="btn out dark" href="join.html">New to the chapter? Join here &rarr;</a></p>
 </main>
 
 <footer><p>&copy; <span id="yr"></span> Denver Alumni Chapter of Kappa Alpha Psi Fraternity, Inc.</p></footer>
