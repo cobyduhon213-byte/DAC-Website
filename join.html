@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Join the Chapter | Denver Alumni Chapter of Kappa Alpha Psi</title>
+<style>
+:root{--crimson:#990000;--crimson-dark:#6b0000;--cream:#f6efe0;--ink:#1d1a17;--gold:#c9a24a;--white:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Georgia,"Times New Roman",serif;color:var(--ink);background:var(--cream);line-height:1.6}
+h1,h2,.btn,nav a,label,button{font-family:"Helvetica Neue",Arial,sans-serif}
+header{background:var(--crimson-dark);position:sticky;top:0;z-index:10;border-bottom:3px solid var(--gold)}
+.bar{max-width:1000px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:.6rem 1.2rem}
+.home{display:flex;align-items:center;gap:.7rem;color:var(--cream);text-decoration:none;font-weight:700}
+.home img{height:48px;width:auto}
+nav a{color:var(--cream);text-decoration:none;margin-left:1.2rem;font-size:.95rem}
+nav a:hover,nav a.cur{color:var(--gold)}
+.hero{background:linear-gradient(160deg,var(--crimson),var(--crimson-dark));color:var(--cream);text-align:center;padding:4rem 1.2rem}
+.hero h1{font-size:clamp(2rem,5vw,3rem)}
+.hero p{max-width:620px;margin:1rem auto 2rem;font-size:1.15rem}
+.btn{display:inline-block;padding:.8rem 1.6rem;border-radius:4px;text-decoration:none;font-weight:700;border:2px solid var(--gold);background:var(--gold);color:var(--ink);cursor:pointer;font-size:1rem}
+.btn:hover{opacity:.9}
+main{max-width:1000px;margin:auto;padding:3rem 1.2rem}
+h2.s{color:var(--crimson-dark);margin:2.5rem 0 1rem;font-size:1.6rem}
+h2.s:first-child{margin-top:0}
+.card{background:var(--white);border-top:5px solid var(--crimson);padding:1.5rem 1.8rem;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.card ul{margin:.6rem 0 0 1.2rem}
+.steps{counter-reset:s;list-style:none}
+.steps li{counter-increment:s;background:var(--white);margin-bottom:.8rem;padding:1rem 1rem 1rem 4rem;position:relative;border-radius:4px}
+.steps li::before{content:counter(s);position:absolute;left:1rem;top:50%;transform:translateY(-50%);width:2.2rem;height:2.2rem;border-radius:50%;background:var(--crimson);color:var(--cream);display:grid;place-items:center;font-family:Arial,sans-serif;font-weight:700}
+form{background:var(--white);padding:2rem;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.08);display:grid;gap:1rem}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:600px){.row{grid-template-columns:1fr}nav a{margin-left:.7rem}}
+label{font-weight:700;font-size:.9rem;display:block;margin-bottom:.25rem}
+input,textarea{width:100%;padding:.65rem;border:1px solid #bbb;border-radius:4px;font:inherit}
+input:focus,textarea:focus{outline:2px solid var(--crimson)}
+.note{font-size:.85rem;color:#555}
+#msg{font-weight:700;color:var(--crimson)}
+.alt{text-align:center;margin-top:2rem}
+.alt a{color:var(--crimson);font-weight:700}
+footer{background:var(--ink);color:var(--cream);text-align:center;padding:2rem 1rem;font-size:.9rem;font-family:Arial,sans-serif}
+</style>
+</head>
+<body>
+<header><div class="bar">
+  <a class="home" href="#top" aria-label="Home">
+    <img src="images/denver-chapter-logo.png" alt="Denver Alumni Chapter logo" onerror="this.style.display='none'">
+    <span>Denver Alumni Chapter</span>
+  </a>
+  <nav><a href="join.html" class="cur">Join</a><a href="reclaim.html">Reclaim</a></nav>
+</div></header>
+
+<section class="hero" id="top">
+  <h1>Join the Brotherhood</h1>
+  <p>New to Denver or never affiliated with the alumni chapter? Take your place with us.</p>
+  <a class="btn" href="#apply">Get Started</a>
+</section>
+
+<main>
+  <h2 class="s">Who this is for</h2>
+  <div class="card"><ul><li>Kappa Alpha Psi brothers who are new to the Denver area</li><li>Brothers who have never affiliated with the Denver alumni chapter</li><li>Brothers transferring from another alumni chapter</li></ul></div>
+
+  <h2 class="s">How It Works</h2>
+  <ol class="steps"><li><strong>Submit the form below.</strong> Tell us who you are, your line, and where you came from.</li><li><strong>Chapter review.</strong> A chapter officer will contact you to verify your information and standing.</li><li><strong>Complete requirements.</strong> We will walk you through any paperwork and dues for your situation.</li><li><strong>Welcome to Denver.</strong> Attend your first meeting and get connected.</li></ol>
+
+  <h2 class="s" id="apply">Join the Chapter</h2>
+  <form id="f">
+    <div class="row">
+      <div><label for="name">Full name</label><input id="name" type="text" required ></div>
+      <div><label for="email">Email</label><input id="email" type="email" required ></div>
+    </div>
+    <div class="row">
+      <div><label for="phone">Phone</label><input id="phone" type="tel" ></div>
+      <div><label for="city">City / State</label><input id="city" type="text" ></div>
+    </div>
+    <div class="row">
+      <div><label for="chap">Undergraduate chapter</label><input id="chap" type="text" ></div>
+      <div><label for="year">Initiation year &amp; line name</label><input id="year" type="text" placeholder="e.g. Spring 2008 - Line Name"></div>
+    </div>
+    <div><label for="from">Previous alumni chapter (if any)</label><input id="from"></div>
+    <div><label for="notes">Anything else we should know?</label><textarea id="notes" rows="4"></textarea></div>
+    <button class="btn" type="submit">Submit Join Request</button>
+    <p class="note">This opens an email to the chapter with your details. No information is stored on this page.</p>
+    <p id="msg" role="status"></p>
+  </form>
+  <p class="alt"><a href="reclaim.html">Returning member? Reclaim your membership &rarr;</a></p>
+</main>
+
+<footer><p>&copy; <span id="yr"></span> Denver Alumni Chapter of Kappa Alpha Psi Fraternity, Inc.</p></footer>
+
+<script>
+  var CHAPTER_EMAIL = "chapter@example.org"; // TODO: replace with the chapter's real contact email
+  document.getElementById("yr").textContent = new Date().getFullYear();
+  document.getElementById("f").addEventListener("submit", function(e){
+    e.preventDefault();
+    var v = function(id){ return document.getElementById(id).value.trim(); };
+    var lines = [
+      "Request type: JOIN",
+      "Name: " + v("name"),
+      "Email: " + v("email"),
+      "Phone: " + v("phone"),
+      "Location: " + v("city"),
+      "Undergraduate chapter: " + v("chap"),
+      "Initiation year / line: " + v("year"),
+      "Previous alumni chapter (if any): " + v("from"),
+      "Notes: " + v("notes")
+    ];
+    var subject = encodeURIComponent("Join Request - " + v("name"));
+    window.location.href = "mailto:" + CHAPTER_EMAIL + "?subject=" + subject + "&body=" + encodeURIComponent(lines.join("\n"));
+    document.getElementById("msg").textContent = "Thank you. Your email app should open with your details ready to send.";
+  });
+</script>
+</body>
+</html>
