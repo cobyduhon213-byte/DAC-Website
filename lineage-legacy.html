@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
-  /* Lineage dropdown — scoped; tweak the 3 variables below to match your palette */
+  /* Lineage dropdown — scoped; tweak the variables below to match your palette */
   .lineage-list{--ln-accent:#9e1b32;--ln-gold:#EFC77A;--ln-bg:#fff;--ln-tint:#faf5ee;--ln-line:#e4d9c8;
     max-width:860px;margin:0 auto}
   .lineage-controls{display:flex;gap:10px;justify-content:flex-end;margin-bottom:16px}
@@ -25,181 +25,295 @@
   .line-item summary::-webkit-details-marker{display:none}
   .line-item summary:hover,.line-item[open] summary{background:var(--ln-tint)}
   .line-item[open] summary{border-bottom:1px solid var(--ln-line)}
-  .line-year{font-family:'Fraunces',serif;font-weight:700;font-size:26px;color:var(--ln-accent);min-width:70px}
+  .line-year{font-family:'Fraunces',serif;font-weight:700;font-size:22px;color:var(--ln-accent);min-width:152px;white-space:nowrap}
   .line-name{flex:1;font-family:'Fraunces',serif;font-weight:600;font-size:19px;color:#1d1d1d}
-  .line-count{font-size:13px;color:#777;white-space:nowrap}
   .line-item summary::after{content:"";width:9px;height:9px;flex:none;border-right:2px solid var(--ln-accent);
     border-bottom:2px solid var(--ln-accent);transform:rotate(45deg);transition:transform .25s;margin:0 4px 4px 6px}
   .line-item[open] summary::after{transform:rotate(-135deg);margin-bottom:-3px}
-  .line-body{padding:14px 22px 20px 112px}
+  /* brother count removed; hide it if script.js still injects one */
+  .line-count{display:none!important}
+  .line-body{padding:14px 22px 20px 22px}
   .line-body ol{margin:0;padding-left:22px;line-height:2;color:#333}
   .line-body li::marker{color:var(--ln-accent);font-weight:600}
   @media(max-width:600px){
     .line-item summary{gap:12px;padding:16px}
-    .line-year{font-size:22px;min-width:56px}.line-name{font-size:17px}
-    .line-count{display:none}.line-body{padding:12px 16px 18px 48px}
+    .line-year{font-size:17px;min-width:0;flex:none}.line-name{font-size:16px}
+    .line-body{padding:12px 16px 18px 16px}
   }
 </style>
 </head>
 <body>
 <div class="concept-flag">Redesign concept &middot; not the live site</div>
+
 <header>
-<div class="wrap navbar">
-<a class="brand" href="index.html" aria-label="Denver Alumni Chapter of Kappa Alpha Psi &mdash; Home">
-<img class="brand-logo" src="images/denver-chapter-logo.png" alt="Denver Alumni Chapter of Kappa Alpha Psi Fraternity, Inc. &mdash; Est. 1954" width="86" height="62">
-</a>
-<button class="navtoggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-</button>
-<nav class="primary" id="primaryNav">
-<div class="navitem">
-<button class="" aria-expanded="false">Home <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6"/></svg></button>
-<div class="dropdown">
-<a href="index.html">Welcome</a>
-</div>
-</div>
-<div class="navitem">
-<button class="" aria-expanded="false">History <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6"/></svg></button>
-<div class="dropdown">
-<a href="denver-history.html">Denver Alumni History</a>
-<a href="kappa-tower.html">Kappa Tower</a>
-<a href="fraternity-history.html">Fraternity History</a>
-<a href="founders-objectives.html">Founders &amp; Objectives</a>
-<a href="middle-western-province.html">Middle Western Province</a>
-</div>
-</div>
-<div class="navitem">
-<button class="active" aria-expanded="false">Mile High Nupes <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6"/></svg></button>
-<div class="dropdown">
-<a href="chapter-officers.html">Chapter Officers</a>
-<a href="province-officers.html">Province Officers</a>
-<a href="committee-chairmen.html">Committee Chairmen</a>
-<a href="board-of-directors.html">Board of Directors</a>
-<a href="past-polemarchs.html">Past Polemarchs</a>
-<a href="lineage-legacy.html">Lineage &amp; Legacy</a>
-</div>
-</div>
-<div class="navitem">
-<button class="" aria-expanded="false">Programs <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6"/></svg></button>
-<div class="dropdown">
-<a href="kappa-league.html">Kappa League</a>
-<a href="guide-right.html">Guide Right</a>
-<a href="scholarship-foundation.html">Scholarship Foundation</a>
-<a href="senior-kappa-affairs.html">Senior Kappa Affairs</a>
-</div>
-</div>
-<div class="navitem">
-<button class="" aria-expanded="false">Events <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6"/></svg></button>
-<div class="dropdown">
-<a href="events.html#upcoming">Upcoming Events</a>
-<a href="events.html#golf">Golf Tournament</a>
-<a href="events.html#sponsor">Sponsor &amp; Partner</a>
-<a href="events.html#gallery">Gallery</a>
-</div>
-</div>
-<div class="navitem">
-<button class="" aria-expanded="false">Contact <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6"/></svg></button>
-<div class="dropdown">
-<a href="contact.html#touch">Get in Touch</a>
-<a href="contact.html#sponsor">Sponsor &amp; Partner</a>
-<a href="join.html">Join the Chapter</a>
-<a href="reclaim.html">Reclaim Your Membership</a>
-<a href="contact.html#links">External Links</a>
-</div>
-</div>
-<a class="navcta" href="join.html" style="align-self:center; margin-left:6px;">Join</a>
-<a class="navcta navcta-outline" href="reclaim.html" style="align-self:center;">Reclaim</a>
-</nav>
-</div>
+  <div class="wrap navbar">
+    <a class="brand" href="index.html" aria-label="Denver Alumni Chapter of Kappa Alpha Psi &mdash; Home">
+      <img class="brand-logo" src="images/denver-chapter-logo.png" alt="Denver Alumni Chapter of Kappa Alpha Psi Fraternity, Inc. &mdash; Est. 1954" width="86" height="62">
+    </a>
+    <button class="navtoggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="primary" id="primaryNav">
+      <div class="navitem">
+        <button class="" aria-expanded="false">Home <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <div class="dropdown">
+          <a href="index.html">Welcome</a>
+        </div>
+      </div>
+      <div class="navitem">
+        <button class="" aria-expanded="false">History <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <div class="dropdown">
+          <a href="denver-history.html">Denver Alumni History</a>
+          <a href="kappa-tower.html">Kappa Tower</a>
+          <a href="fraternity-history.html">Fraternity History</a>
+          <a href="founders-objectives.html">Founders &amp; Objectives</a>
+          <a href="middle-western-province.html">Middle Western Province</a>
+        </div>
+      </div>
+      <div class="navitem">
+        <button class="active" aria-expanded="false">Mile High Nupes <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <div class="dropdown">
+          <a href="chapter-officers.html">Chapter Officers</a>
+          <a href="province-officers.html">Province Officers</a>
+          <a href="committee-chairmen.html">Committee Chairmen</a>
+          <a href="board-of-directors.html">Board of Directors</a>
+          <a href="past-polemarchs.html">Past Polemarchs</a>
+          <a href="lineage-legacy.html">Lineage &amp; Legacy</a>
+        </div>
+      </div>
+      <div class="navitem">
+        <button class="" aria-expanded="false">Programs <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <div class="dropdown">
+          <a href="kappa-league.html">Kappa League</a>
+          <a href="guide-right.html">Guide Right</a>
+          <a href="scholarship-foundation.html">Scholarship Foundation</a>
+          <a href="senior-kappa-affairs.html">Senior Kappa Affairs</a>
+        </div>
+      </div>
+      <div class="navitem">
+        <button class="" aria-expanded="false">Events <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <div class="dropdown">
+          <a href="events.html#upcoming">Upcoming Events</a>
+          <a href="events.html#golf">Golf Tournament</a>
+          <a href="events.html#sponsor">Sponsor &amp; Partner</a>
+          <a href="events.html#gallery">Gallery</a>
+        </div>
+      </div>
+      <div class="navitem">
+        <button class="" aria-expanded="false">Contact <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <div class="dropdown">
+          <a href="contact.html#touch">Get in Touch</a>
+          <a href="contact.html#sponsor">Sponsor &amp; Partner</a>
+          <a href="join.html">Join the Chapter</a>
+          <a href="reclaim.html">Reclaim Your Membership</a>
+          <a href="contact.html#links">External Links</a>
+        </div>
+      </div>
+      <a class="navcta" href="join.html" style="align-self:center; margin-left:6px;">Join</a>
+      <a class="navcta navcta-outline" href="reclaim.html" style="align-self:center;">Reclaim</a>
+    </nav>
+  </div>
 </header>
 <div class="subnav-wrap">
-<div class="wrap subnav">
-<a href="mile-high-nupes.html" class="back">&larr; Mile High Nupes</a>
-<a href="chapter-officers.html">Chapter Officers</a>
-<a href="province-officers.html">Province Officers</a>
-<a href="committee-chairmen.html">Committee Chairmen</a>
-<a href="board-of-directors.html">Board of Directors</a>
-<a href="past-polemarchs.html">Past Polemarchs</a>
-<a href="lineage-legacy.html" class="active">Lineage &amp; Legacy</a>
-</div>
+  <div class="wrap subnav">
+    <a href="mile-high-nupes.html" class="back">&larr; Mile High Nupes</a>
+    <a href="chapter-officers.html">Chapter Officers</a>
+      <a href="province-officers.html">Province Officers</a>
+      <a href="committee-chairmen.html">Committee Chairmen</a>
+      <a href="board-of-directors.html">Board of Directors</a>
+      <a href="past-polemarchs.html">Past Polemarchs</a>
+      <a href="lineage-legacy.html" class="active">Lineage &amp; Legacy</a>
+  </div>
 </div><section class="page-hero">
 <div class="wrap">
 <h1>Lineage &amp; Legacy</h1>
+</div>
+</section>
 <section class="page-body">
 <div class="wrap">
 <div class="lineage-list">
+<div class="lineage-controls">
+  <button type="button" id="expandAll">Expand all</button>
+  <button type="button" id="collapseAll">Collapse all</button>
+</div>
 
-  <details class="line-item"><summary><span class="line-year">Spring 2026</span><span class="line-name">K.S. Kode Red</span><span class="line-count"></span></summary>
-    <div class="line-body"><ol><li>Coby Duhon</li><li>Justin Wills</li><li>Devon Young</li></ol></div></details>
+  <details class="line-item"><summary><span class="line-year">Spring 1971</span><span class="line-name"></span></summary>
+    <div class="line-body"><ol><li>Dale H. Carnegie</li><li>Theodore C. Hunt</li></ol></div></details>
 
-  <details class="line-item"><summary><span class="line-year">Spring 2024</span><span class="line-name">K.S. Unknown</span><span class="line-count"></span></summary>
-    <div class="line-body"><ol><li>Nautica Cobb</li></ol></div></details>
+  <details class="line-item"><summary><span class="line-year">Spring 1972</span><span class="line-name"></span></summary>
+    <div class="line-body"><ol><li>John H. Spencer Jr.</li><li>Michael P. Tassian</li><li>Regginald J. Butler</li></ol></div></details>
 
-  <details class="line-item"><summary><span class="line-year">Spring 2023</span><span class="line-name">K.S. Kase Klosed</span><span class="line-count"></span></summary>
-    <div class="line-body"><ol><li>Marcus Bell</li><li>Cinque Mason</li></ol></div></details>
+  <details class="line-item"><summary><span class="line-year">Spring 1973</span><span class="line-name"></span></summary>
+    <div class="line-body"><ol><li>George H. Wayne</li><li>Paul Hollins</li><li>William U. Farrell</li></ol></div></details>
 
-  <details class="line-item"><summary><span class="line-year">Spring 2022</span><span class="line-name">K.S. Khaotic Konclusion</span><span class="line-count"></span></summary>
-    <div class="line-body"><ol><li>Julian Dillard</li><li>Uryan Hudson</li><li>Foster Expose Jr.</li><li>Karl Watkins</li><li>Malik Charles</li></ol></div></details>
+  <details class="line-item"><summary><span class="line-year">Spring 1974</span><span class="line-name"></span></summary>
+    <div class="line-body"><ol><li>Barnard Love</li><li>Edward J. Garner</li><li>Nollie G. Stowers Jr.</li><li>Warren D. Alexander</li></ol></div></details>
 
-  <details class="line-item"><summary><span class="line-year">Spring 2020</span><span class="line-name">K.S. The Purge</span><span class="line-count"></span></summary>
-    <div class="line-body"><ol><li>Ken Cauthen</li><li>Walter Ross</li></ol></div></details>
+  <details class="line-item"><summary><span class="line-year">Summer 1975</span><span class="line-name"></span></summary>
+    <div class="line-body"><ol><li>James E. Fisher</li><li>Rudolph Livingston</li><li>Stevenson T. Holmes Jr.</li></ol></div></details>
 
-  <details class="line-item"><summary><span class="line-year">Spring 2019</span><span class="line-name">K.S. 6 Grimm Krusaders</span><span class="line-count"></span></summary>
-    <div class="line-body"><ol><li>Frank Jackson</li><li>Marquez Sanders</li><li>Andrew Larson</li><li>William Cook</li><li>Kevin Blake</li><li>Clayton Brown</li></ol></div></details>
+  <details class="line-item"><summary><span class="line-year">Spring 1976</span><span class="line-name"></span></summary>
+    <div class="line-body"><ol><li>Herman R. Moseley</li><li>L. Tyrone Holt</li></ol></div></details>
 
-  <details class="line-item"><summary><span class="line-year">Spring 2018</span><span class="line-name">K.S. J.U.I.C.E. Krew</span><span class="line-count"></span></summary>
-    <div class="line-body"><ol><li>Durrell Middleton</li><li>Jay Barry</li><li>James Lopes</li><li>Clarence Allen</li><li>Matthew White</li><li>Cameron White</li></ol></div></details>
+  <details class="line-item"><summary><span class="line-year">Spring 1977</span><span class="line-name"></span></summary>
+    <div class="line-body"><ol><li>Joseph R. Green</li></ol></div></details>
 
-  <details class="line-item"><summary><span class="line-year">Spring 2016</span><span class="line-name">K.S. Phinal Kut</span><span class="line-count"></span></summary>
-    <div class="line-body"><ol><li>Lance Alexander</li><li>Brandon Bruce</li></ol></div></details>
+  <details class="line-item"><summary><span class="line-year">Summer 1978</span><span class="line-name"></span></summary>
+    <div class="line-body"><ol><li>James L. Jackson</li><li>Malcolm D. Dehart-Reed</li><li>Robert P. Rogers Sr.</li></ol></div></details>
 
-  <details class="line-item"><summary><span class="line-year">Spring 2013</span><span class="line-name">K.S.</span><span class="line-count"></span></summary>
-    <div class="line-body"><ol><li>James Coleman</li></ol></div></details>
+  <details class="line-item"><summary><span class="line-year">Spring 1979</span><span class="line-name"></span></summary>
+    <div class="line-body"><ol><li>Lawrence R. Alexander</li><li>Luther W. Moses</li><li>Malcolm Holliman</li></ol></div></details>
 
-  <details class="line-item"><summary><span class="line-year">Spring 2011</span><span class="line-name">K.S. Klash Of The Titans</span><span class="line-count"></span></summary>
-    <div class="line-body"><ol><li>Martin Tatom</li><li>Allen Webb</li></ol></div></details>
+  <details class="line-item"><summary><span class="line-year">Spring 1980</span><span class="line-name"></span></summary>
+    <div class="line-body"><ol><li>Eulus Dennis</li><li>James J. Holden</li><li>Jimmie L. Craft</li><li>Thomas B. Jenkins</li></ol></div></details>
 
-  <details class="line-item"><summary><span class="line-year">Spring 2009</span><span class="line-name">K.S. Board Of Kommissioners</span><span class="line-count"></span></summary>
-    <div class="line-body"><ol><li>Joseph Graves Jr.</li><li>Bertino Gordon</li><li>Steve King</li><li>Jevard Hitch</li><li>Emmanuel Barr</li><li>Lamar McBride</li></ol></div></details>
+  <details class="line-item"><summary><span class="line-year">Spring 1981</span><span class="line-name"></span></summary>
+    <div class="line-body"><ol><li>George Washington</li><li>Gilbert E. Smith</li><li>J. Benjamin Hall</li><li>Walter E. Tootle</li><li>Webb A. Tarrant</li><li>Wellington E. Webb</li><li>Wesley J. Jackson</li></ol></div></details>
+
+  <details class="line-item"><summary><span class="line-year">Spring 1982</span><span class="line-name"></span></summary>
+    <div class="line-body"><ol><li>Alfred E. Nash Sr.</li><li>Anthony J. Wade Sr.</li><li>Bennie L. Johnson</li><li>Winfred W. Seymour Jr.</li></ol></div></details>
+
+  <details class="line-item"><summary><span class="line-year">Summer 1984</span><span class="line-name"></span></summary>
+    <div class="line-body"><ol><li>Fred M. Riley</li><li>Gregory Kellam Scott</li><li>Harvey E. Swan</li><li>Samuel R. Batey</li></ol></div></details>
+
+  <details class="line-item"><summary><span class="line-year">Spring 1985</span><span class="line-name"></span></summary>
+    <div class="line-body"><ol><li>Charles E. Davison Jr.</li><li>James O. Deadwiler</li><li>James W. Lyday Jr.</li><li>James E. Caldwell</li><li>Kenneth L. Richardson</li><li>Melvin T. Burgess</li><li>Wazir Muhammad</li></ol></div></details>
+
+  <details class="line-item"><summary><span class="line-year">Fall 1986</span><span class="line-name"></span></summary>
+    <div class="line-body"><ol><li>Peter O. Adu</li><li>William H. Coker III</li></ol></div></details>
+
+  <details class="line-item"><summary><span class="line-year">Spring 1987</span><span class="line-name"></span></summary>
+    <div class="line-body"><ol><li>Clifford C. Boyce Jr.</li><li>Leandrew Alexander Jr.</li><li>William D. Graves</li></ol></div></details>
+
+  <details class="line-item"><summary><span class="line-year">Fall 1989</span><span class="line-name"></span></summary>
+    <div class="line-body"><ol><li>Fielden G. Chenault</li><li>J. Bill Brown</li><li>Percy A. Morehouse Jr.</li><li>William R. Lowe</li></ol></div></details>
+
+  <details class="line-item"><summary><span class="line-year">Spring 1991</span><span class="line-name"></span></summary>
+    <div class="line-body"><ol><li>Billy B. Foster</li><li>Charles L. Davenport Jr.</li><li>Larry A. Williams</li><li>Lavelle Knight</li><li>Lewis C. Rhone III</li></ol></div></details>
+
+  <details class="line-item"><summary><span class="line-year">Spring 1993</span><span class="line-name"></span></summary>
+    <div class="line-body"><ol><li>Benjamin L. Cooper</li><li>Derek A. Williams</li><li>Glenn F. Younger</li><li>John A Colbert</li></ol></div></details>
+
+  <details class="line-item"><summary><span class="line-year">Spring 1996</span><span class="line-name"></span></summary>
+    <div class="line-body"><ol><li>Robert N. King</li></ol></div></details>
+
+  <details class="line-item"><summary><span class="line-year">Spring 1998</span><span class="line-name"></span></summary>
+    <div class="line-body"><ol><li>Larry D. Burdine</li><li>Nathaniel A. Moore</li><li>Terrance G. Hunt</li></ol></div></details>
+
+  <details class="line-item"><summary><span class="line-year">Spring 1999</span><span class="line-name"></span></summary>
+    <div class="line-body"><ol><li>Anthony G. Coleman</li><li>Damon J. Herring</li><li>Eric D. Artis</li></ol></div></details>
+
+  <details class="line-item"><summary><span class="line-year">Spring 2000</span><span class="line-name"></span></summary>
+    <div class="line-body"><ol><li>Kenneth Dean Floyd</li></ol></div></details>
+
+  <details class="line-item"><summary><span class="line-year">Fall 2000</span><span class="line-name"></span></summary>
+    <div class="line-body"><ol><li>Byron Kenneth Huffman</li><li>Maurice Donyale Hendrix</li></ol></div></details>
+
+  <details class="line-item"><summary><span class="line-year">Spring 2001</span><span class="line-name"></span></summary>
+    <div class="line-body"><ol><li>Daemon S. Pryor</li></ol></div></details>
+
+  <details class="line-item"><summary><span class="line-year">Spring 2002</span><span class="line-name"></span></summary>
+    <div class="line-body"><ol><li>Gregory Deone Cooley</li></ol></div></details>
+
+  <details class="line-item"><summary><span class="line-year">Spring 2003</span><span class="line-name"></span></summary>
+    <div class="line-body"><ol><li>Franklin Knous Jackson</li><li>Michael James Lewis</li><li>Rickey Fredrick Simmons</li><li>Ronald Wayne Frierson</li></ol></div></details>
+
+  <details class="line-item"><summary><span class="line-year">Spring 2004</span><span class="line-name"></span></summary>
+    <div class="line-body"><ol><li>Donald Robert Rice</li><li>Michael Dennis</li><li>Penfield Wallace Tate III</li><li>Richard G. Scott Jr.</li><li>Roy Glenn Alexander</li></ol></div></details>
+
+  <details class="line-item"><summary><span class="line-year">Fall 2004</span><span class="line-name"></span></summary>
+    <div class="line-body"><ol><li>Harold William Bailey</li></ol></div></details>
+
+  <details class="line-item"><summary><span class="line-year">Spring 2006</span><span class="line-name"></span></summary>
+    <div class="line-body"><ol><li>Geoffrey Sean Crowell</li><li>Leonard Louis Newson</li></ol></div></details>
+
+  <details class="line-item"><summary><span class="line-year">Spring 2007</span><span class="line-name"></span></summary>
+    <div class="line-body"><ol><li>Cameron Arthur Winchester</li><li>Saxton Steceban Hudson</li></ol></div></details>
+
+  <details class="line-item"><summary><span class="line-year">Spring 2008</span><span class="line-name"></span></summary>
+    <div class="line-body"><ol><li>Eric Charles Clinkscales</li><li>Gregory Hayze Rhodes</li><li>Wayne Frederick Marshall</li></ol></div></details>
+
+  <details class="line-item"><summary><span class="line-year">Spring 2009</span><span class="line-name">K.S. Board Of Kommissioners</span></summary>
+    <div class="line-body"><ol><li>Bertino William Gordon</li><li>Demetrius Lamar McBride</li><li>Emanuel David Barr</li><li>Jevard Hilton Hitch</li><li>Joseph Howard Graves Jr.</li><li>Steven Lawrence King</li></ol></div></details>
+
+  <details class="line-item"><summary><span class="line-year">Spring 2010</span><span class="line-name"></span></summary>
+    <div class="line-body"><ol><li>Bobson Richard</li><li>Brandon Arnell Walker</li><li>Jarrad Christopher Jackson</li></ol></div></details>
+
+  <details class="line-item"><summary><span class="line-year">Spring 2011</span><span class="line-name">K.S. Klash Of The Titans</span></summary>
+    <div class="line-body"><ol><li>Allen Wayne Webb II</li><li>Martin Garrett Tatom</li></ol></div></details>
+
+  <details class="line-item"><summary><span class="line-year">Spring 2012</span><span class="line-name"></span></summary>
+    <div class="line-body"><ol><li>Brandon Lance McCollum</li><li>James Rashad Coleman</li></ol></div></details>
+
+  <details class="line-item"><summary><span class="line-year">Spring 2013</span><span class="line-name"></span></summary>
+    <div class="line-body"><ol><li>Wael Babiker Khalifa</li></ol></div></details>
+
+  <details class="line-item"><summary><span class="line-year">Spring 2016</span><span class="line-name">K.S. Phinal Kut</span></summary>
+    <div class="line-body"><ol><li>Brandon L. Bruce</li><li>Lanceferd Lewis Alexander</li></ol></div></details>
+
+  <details class="line-item"><summary><span class="line-year">Fall 2016</span><span class="line-name"></span></summary>
+    <div class="line-body"><ol><li>Selwyn Lynn Foster</li></ol></div></details>
+
+  <details class="line-item"><summary><span class="line-year">Spring 2018</span><span class="line-name">K.S. J.U.I.C.E. Krew</span></summary>
+    <div class="line-body"><ol><li>Cameron Demetrious White</li><li>Clarence Kamau Allen III</li><li>Durrell L. Middleton</li><li>James Lopes</li><li>Jay C. Barry</li><li>Matthew Daniel White</li></ol></div></details>
+
+  <details class="line-item"><summary><span class="line-year">Spring 2019</span><span class="line-name">K.S. 6 Grimm Krusaders</span></summary>
+    <div class="line-body"><ol><li>Andrew Lynn Latson Jr.</li><li>Clayton Eli Brown</li><li>Frank R. Jackson</li><li>Kevin Shaqueel Blake Jr.</li><li>Marquez Dontil Sanders</li><li>William Andrè Cooks</li></ol></div></details>
+
+  <details class="line-item"><summary><span class="line-year">Spring 2020</span><span class="line-name">K.S. The Purge</span></summary>
+    <div class="line-body"><ol><li>Kendrick Lewis Cauthen</li><li>Walter Vernell Franklin Ross III</li></ol></div></details>
+
+  <details class="line-item"><summary><span class="line-year">Spring 2022</span><span class="line-name">K.S. Khaotic Konclusion</span></summary>
+    <div class="line-body"><ol><li>Foster Expose Jr.</li><li>Julian Jermaine Payne-Dillard</li><li>Karl Anthony Watkins</li><li>Malik Damon Charles</li><li>Uryan A. Hudson</li></ol></div></details>
+
+  <details class="line-item"><summary><span class="line-year">Spring 2023</span><span class="line-name">K.S. Kase Klosed</span></summary>
+    <div class="line-body"><ol><li>Cinque Dominic Mason</li><li>Marcus Leon Edward Bell</li><li>Ngu Qwazon Al Khaliq</li></ol></div></details>
+
+  <details class="line-item"><summary><span class="line-year">Spring 2024</span><span class="line-name">K.S. Unknown</span></summary>
+    <div class="line-body"><ol><li>Fredrick Douglas Scott</li><li>Nautica Cobb</li><li>Stephen Houston</li></ol></div></details>
+
+  <details class="line-item"><summary><span class="line-year">Spring 2026</span><span class="line-name">K.S. Kode Red</span></summary>
+    <div class="line-body"><ol><li>Coby Duhon</li><li>Devon Young</li><li>Justin Wills</li></ol></div></details>
 </div>
 </div>
 </section>
 <footer id="footer-connect">
-<div class="wrap">
-<div class="foot-grid" style="grid-template-columns:1.6fr 1fr 1fr 1fr;">
-<div>
-<div class="foot-brand" style="margin-bottom:16px;">
-<svg class="mark" viewBox="0 0 44 44" fill="none"><path d="M22 2 L40 22 L22 42 L4 22 Z" stroke="#EFC77A" stroke-width="2"/><path d="M22 12 L32 22 L22 32 L12 22 Z" fill="#EFC77A"/></svg>
-<span style="font-family:'Fraunces',serif; font-weight:600; color:var(--cream); font-size:16px;">Denver Alumni Chapter</span>
-</div>
-<p>Kappa Alpha Psi Fraternity, Inc. &mdash; serving metro Denver since 1954.</p>
-</div>
-<div>
-<h4>Quick Links</h4>
-<a href="index.html">Home</a>
-<a href="history.html">History</a>
-<a href="mile-high-nupes.html">Mile High Nupes</a>
-</div>
-<div>
-<h4>Quick Links</h4>
-<a href="programs.html">Programs</a>
-<a href="events.html">Events</a>
-<a href="contact.html">Contact</a>
-</div>
-<div>
-<h4>Connect</h4>
-<a href="contact.html#links">Facebook &#8599;</a>
-<a href="contact.html#links">Instagram &#8599;</a>
-<a href="http://dkapsfoundation.org" target="_blank" rel="noopener">Scholarship Foundation &#8599;</a>
-<a href="https://denverkappas.org/store" target="_blank" rel="noopener">Store (Brothers Only) &#8599;</a>
-</div>
-</div>
-<div class="foot-bottom">
-<span>&copy; 2026 Denver Alumni Chapter of Kappa Alpha Psi Fraternity, Inc.</span>
-<span>Achievement in every field of human endeavor.</span>
-</div>
-</div>
+  <div class="wrap">
+    <div class="foot-grid" style="grid-template-columns:1.6fr 1fr 1fr 1fr;">
+      <div>
+        <div class="foot-brand" style="margin-bottom:16px;">
+          <svg class="mark" viewBox="0 0 44 44" fill="none"><path d="M22 2 L40 22 L22 42 L4 22 Z" stroke="#EFC77A" stroke-width="2"/><path d="M22 12 L32 22 L22 32 L12 22 Z" fill="#EFC77A"/></svg>
+          <span style="font-family:'Fraunces',serif; font-weight:600; color:var(--cream); font-size:16px;">Denver Alumni Chapter</span>
+        </div>
+        <p>Kappa Alpha Psi Fraternity, Inc. &mdash; serving metro Denver since 1954.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <a href="index.html">Home</a>
+        <a href="history.html">History</a>
+        <a href="mile-high-nupes.html">Mile High Nupes</a>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <a href="programs.html">Programs</a>
+        <a href="events.html">Events</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <a href="contact.html#links">Facebook &#8599;</a>
+        <a href="contact.html#links">Instagram &#8599;</a>
+        <a href="http://dkapsfoundation.org" target="_blank" rel="noopener">Scholarship Foundation &#8599;</a>
+        <a href="https://denverkappas.org/store" target="_blank" rel="noopener">Store (Brothers Only) &#8599;</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 Denver Alumni Chapter of Kappa Alpha Psi Fraternity, Inc.</span>
+      <span>Achievement in every field of human endeavor.</span>
+    </div>
+  </div>
 </footer>
+
 <script src="script.js"></script>
 <script>
   document.getElementById('expandAll').addEventListener('click', function () {
