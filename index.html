@@ -18,10 +18,10 @@
     <a class="brand" href="index.html" aria-label="Denver Alumni Chapter of Kappa Alpha Psi &mdash; Home">
       <img src="images/denver-chapter-logo.png" alt="Denver Alumni Chapter of Kappa Alpha Psi Fraternity, Inc. &mdash; Est. 1954" width="86" height="62">
     </a>
-    <button class="navtoggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+    <button class="navtoggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primaryNav">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
     </button>
-    <nav class="primary" id="primaryNav">
+    <nav class="primary" id="primaryNav" aria-label="Primary">
       <div class="navitem">
         <button class="active" aria-expanded="false">Home <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6"/></svg></button>
         <div class="dropdown">
@@ -29,7 +29,7 @@
         </div>
       </div>
       <div class="navitem">
-        <button class="" aria-expanded="false">History <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <button aria-expanded="false">History <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6"/></svg></button>
         <div class="dropdown">
           <a href="denver-history.html">Denver (CO) Alumni History</a>
           <a href="kappa-tower.html">Kappa Tower</a>
@@ -39,7 +39,7 @@
         </div>
       </div>
       <div class="navitem">
-        <button class="" aria-expanded="false">Mile High Nupes <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <button aria-expanded="false">Mile High Nupes <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6"/></svg></button>
         <div class="dropdown">
           <a href="chapter-officers.html">Chapter Officers</a>
           <a href="province-officers.html">Province Officers</a>
@@ -50,7 +50,7 @@
         </div>
       </div>
       <div class="navitem">
-        <button class="" aria-expanded="false">Programs <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <button aria-expanded="false">Programs <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6"/></svg></button>
         <div class="dropdown">
           <a href="kappa-league.html">Kappa League</a>
           <a href="guide-right.html">Guide Right</a>
@@ -59,7 +59,7 @@
         </div>
       </div>
       <div class="navitem">
-        <button class="" aria-expanded="false">Events <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <button aria-expanded="false">Events <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6"/></svg></button>
         <div class="dropdown">
           <a href="events.html#upcoming">Upcoming Events</a>
           <a href="events.html#golf">Golf Tournament</a>
@@ -68,7 +68,7 @@
         </div>
       </div>
       <div class="navitem">
-        <button class="" aria-expanded="false">Contact <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <button aria-expanded="false">Contact <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6"/></svg></button>
         <div class="dropdown">
           <a href="contact.html#touch">Get in Touch</a>
           <a href="contact.html#sponsor">Sponsor &amp; Partner</a>
@@ -82,6 +82,8 @@
     </nav>
   </div>
 </header>
+
+<main>
 <section class="hero" id="home">
   <div class="wrap">
     <div class="eyebrow-line">Denver Alumni Chapter &middot; Est. February 20, 1954</div>
@@ -95,15 +97,15 @@
   </div>
 </section>
 
-<section class="section" id="tower">
+<section class="section" id="history">
   <div class="wrap">
-   <img src="images/group-picture.JPG" alt="Denver Alumni Chapter brothers at a chapter event">
-  </div>
+    <img src="images/group-picture.JPG" alt="Denver Alumni Chapter brothers at a chapter event" loading="lazy" style="display:block; width:100%; height:auto; border-radius:6px; margin-bottom:40px;">
+
     <div class="section-head">
-      <span class="tag">Home</span>
+      <span class="tag">History</span>
       <h2>Our History.</h2>
       <p>Chartered February 20, 1954, the Denver Alumni Chapter has spent seven decades building toward something lasting &mdash; including Kappa Tower, the affordable senior housing chapter members founded in 1984 and have since expanded twice over.</p>
-      <a class="go" href="history.html" style="margin-top:6px; display:inline-flex;">Read our full history &rarr;</a>
+      <a class="go" href="denver-history.html" style="margin-top:6px; display:inline-flex;">Read our full history &rarr;</a>
     </div>
 
     <div class="grid cols-3">
@@ -119,7 +121,7 @@
         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 3 7v6c0 5 4 8 9 9 5-1 9-4 9-9V7z"/></svg>
         <h3>Denver Kappa Alpha Psi Scholarship Foundation</h3>
         <p>Every year, the Foundation puts scholarship money &mdash; and a laptop for every recipient &mdash; behind young men in Denver headed to college.</p>
-        <a class="go" href="scholarship-foundation.html">Apply for 2026 &rarr;</a>
+        <a class="go" href="scholarship-foundation.html">Learn about the Foundation &rarr;</a>
       </div>
       <div class="card">
         <div class="img-ph wide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="9" r="1.6"/><path d="M21 16l-5-5-6 6"/></svg><span>Membership / induction photo</span></div>
@@ -144,6 +146,8 @@
     </div>
   </div>
 </section>
+</main>
+
 <footer id="footer-connect">
   <div class="wrap">
     <div class="foot-grid" style="grid-template-columns:1.6fr 1fr 1fr 1fr;">
@@ -155,14 +159,14 @@
         <p>Kappa Alpha Psi Fraternity, Inc. &mdash; serving metro Denver since 1954.</p>
       </div>
       <div>
-        <h4>Quick Links</h4>
+        <h4>Explore</h4>
         <a href="index.html">Home</a>
-        <a href="history.html">History</a>
-        <a href="mile-high-nupes.html">Mile High Nupes</a>
+        <a href="denver-history.html">History</a>
+        <a href="chapter-officers.html">Mile High Nupes</a>
       </div>
       <div>
-        <h4>Quick Links</h4>
-        <a href="programs.html">Programs</a>
+        <h4>Get Involved</h4>
+        <a href="kappa-league.html">Programs</a>
         <a href="events.html">Events</a>
         <a href="contact.html">Contact</a>
       </div>
