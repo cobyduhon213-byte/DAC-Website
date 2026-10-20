@@ -46,9 +46,9 @@ nav.primary{display:flex; align-items:center; gap:2px;}
   color:var(--cream); font:inherit; font-family:'Work Sans',sans-serif;
   font-weight:600; font-size:15px; padding:14px 14px; letter-spacing:.01em;
 }
-.navitem>button.active{color:var(--gold);}
-.navitem>button svg{width:9px; height:9px; opacity:.8; transition:transform .18s;}
-.navitem:hover>button svg{transform:rotate(180deg);}
+.navitem>button.active, .navitem>a.active{color:var(--gold);}
+.navitem>button svg, .navitem>a svg{width:9px; height:9px; opacity:.8; transition:transform .18s;}
+.navitem:hover>button svg, .navitem:hover>a svg{transform:rotate(180deg);}
 .dropdown{
   position:absolute; top:100%; left:0; min-width:280px;
   background:var(--white); color:var(--ink); border-radius:4px;
@@ -82,6 +82,7 @@ nav.primary{display:flex; align-items:center; gap:2px;}
   nav.primary.open{transform:translateX(0);}
   .navitem{width:100%;}
   .navitem>button, .navitem>a{width:100%; justify-content:space-between; padding:16px 8px; border-bottom:1px solid rgba(244,238,226,.12);}
+  .navitem>a svg{width:12px; height:12px; padding:14px; margin:-14px;}
   .dropdown{position:static; box-shadow:none; opacity:1; visibility:visible; transform:none; display:none; background:rgba(244,238,226,.06); border-top:none;}
   .navitem.expanded .dropdown{display:block;}
   .dropdown a{color:var(--cream);}

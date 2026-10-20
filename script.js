@@ -4,11 +4,13 @@ toggle.addEventListener('click', () => {
   const open = nav.classList.toggle('open');
   toggle.setAttribute('aria-expanded', open);
 });
-document.querySelectorAll('.navitem > button').forEach(btn => {
-  btn.addEventListener('click', (e) => {
-    if (window.innerWidth <= 980) {
+// Top tabs are links. On mobile, tapping the little arrow opens the submenu; tapping the label goes to the page.
+document.querySelectorAll('.navitem > a').forEach(link => {
+  link.addEventListener('click', (e) => {
+    if (window.innerWidth <= 980 && e.target.closest('svg')) {
       e.preventDefault();
-      btn.parentElement.classList.toggle('expanded');
+      e.stopImmediatePropagation();
+      link.parentElement.classList.toggle('expanded');
     }
   });
 });
